@@ -3,13 +3,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function NavBar() {
-
   return (
     <div className="wrapper">
       <h1 className="logo">JS</h1>
       <nav className="Nav">
-        <Link to="/login" className="registerButton">Login</Link>
-        <Link to="/register" className="registerButton">Sign Up</Link>
+        <h1>Home</h1>
+        <h1>Find Talent</h1>
+        <h1>Employers</h1>
+        <Link to="/login" className="navButton">
+          Login
+        </Link>
+        <Link to="/register" className="navButton">
+          Sign Up
+        </Link>
       </nav>
     </div>
   );

@@ -1,50 +1,75 @@
 * {
   margin: 0;
   padding: 0;
+  /* overflow: hidden; */
 }
 
 .App {
-  text-align: center;
-  display: flex;
   min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  color: black;
-  background-image: linear-gradient( darkblue, darkblue 48%, darkblue);
 }
 
-h1{
+h1 {
   color: white;
 }
+
 h2 {
   color: white;
 }
+
 h3 {
   color: white;
 }
-a{
-  color: yellow;
-}
-.auth-form-container, .login-form, .register-form {
-  display: flex;
-  flex-direction: column;
+
+a {
+  color: #FFDB3B;
+  text-decoration: none;
 }
 
-@media screen and (min-width: 600px) {
-  .auth-form-container {
+.login-form , .register-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 40%;
+  background-color: #020566;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.form-details {
+  flex-direction: column;
+  align-items: center;
+  text-align: center; 
+  width: 90%;
+  padding: 2rem;
+  margin: auto;
+}
+
+.form-details > h1 {
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .form-container {
     padding: 5rem;
     border: 1px solid blueviolet;
     border-radius: 10px;
-    margin: 0.5rem;
+    margin: auto;
   }
 }
 
 input {
+  display: block;
   margin: 0.5rem 0;
   padding: 1rem;
   border: none;
   border-radius: 10px;
-
 }
 
 select {
@@ -54,56 +79,67 @@ select {
   border-radius: 10px;
 
 }
-
-.loginButton {
-  font-family: 'Poppins';
-  color: black !important;
-  text-transform: uppercase;
+ 
+.navButton {
+  color: black;
+  /* text-transform: uppercase; */
   font-weight: bolder;
   text-decoration: none;
-  background: yellow;
+  background: #FFDB3B;
   padding: 1rem;
   border-radius: 10px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
+  cursor: pointer;
 }
 
 
-.registerButton {
-  font-family: 'Poppins';
+.formButton {
+  /* font-family: 'Poppins'; */
   color: black !important;
   text-transform: uppercase;
   font-weight: bolder;
   text-decoration: none;
-  background: yellow;
+  background: #FFDB3B;
   padding: 1rem;
   border-radius: 10px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
+  width: 100%;
 }
 
 /* NavBar stying */
 
 .wrapper {
+  margin-bottom: 3rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem;
+  padding: 1rem;
+  background-color: #020566;
+  /* width: 100% */
 }
 
 .logo {
   font-family: "Permanent Marker", cursive;
   font-size: 3rem;
-  /* color: deeppink; */
-  margin: 0;
-  line-height: 1;
+  line-height: auto;
+  width: 50%;
+}
+
+.wrapper > nav > h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #FFDB3B;
 }
 
 .Nav {
   display: flex;
+  justify-content: space-around;
   gap: 4px;
   position: absolute;
   right: 8px;
+  width: 50%;
 }
