@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
 
-function IdentityForm({ onLogin }) {
+function VerificationForm({ onLogin }) {
     
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [country, setCountry] = useState("");
   const [birthDate, setBirthDate] = useState("")
   const [passport, setPassport] = useState();
@@ -20,7 +22,7 @@ function IdentityForm({ onLogin }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ country, birthDate, passport, idImage }),
+      body: JSON.stringify({ email,phoneNumber, country, birthDate, passport, idImage }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
@@ -35,8 +37,24 @@ function IdentityForm({ onLogin }) {
     <div className="form-container">
       <div className="form-details">
         <h1>JS</h1>
-        <h2>Verify your identity</h2>
-        <form className="identity-form" onSubmit={handleSubmit}>
+        <h4>Lastly, confirm your details</h4>
+        <form className="verification-form" onSubmit={handleSubmit}>
+        <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            placeholder="✉️ Email"
+            id="email"
+            name="email"
+            />
+            <input
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            type="phoneNumber"
+            placeholder="☏ Phone Number"
+            id="phoneNumber"
+            name="phoneNumber"
+          />
           <input
             value={country}
             onChange={(e) => setCountry(e.target.value)}
@@ -73,11 +91,11 @@ function IdentityForm({ onLogin }) {
           />
 
           <button type="submit" className="formButton">
-            Submit
+            Verify
           </button>
         </form>
       </div>
     </div>
   );
 }
-export default IdentityForm;
+export default VerificationForm;
