@@ -29,7 +29,7 @@ a {
   text-decoration: none;
 }
 
-.login-form , .register-form , .payment-form {
+.login-form , .register-form , .payment-form, .identity-form {
   width: 100%;
   display: flex;
   flex-direction: column;
