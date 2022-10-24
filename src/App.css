@@ -15,17 +15,21 @@ h1 {
 h2 {
   color: white;
 }
+.text {
+  color: #FFDB3B;
+}
 
 h3 {
   color: white;
 }
+
 
 a {
   color: #FFDB3B;
   text-decoration: none;
 }
 
-.login-form , .register-form {
+.login-form , .register-form , .payment-form {
   width: 100%;
   display: flex;
   flex-direction: column;
