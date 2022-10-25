@@ -2,10 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function RegisterForm({ onLogin }) {
+  const options = [
+    { value: 1, text: 'job_seeker'},
+    { value: 2, text: 'employer'}
+
+  ]
+
   const [email, setEmail] = useState("");
-  const [number, setNumber] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [password_confirmation, setPasswordConfirmation] = useState("");
+  const [role, setRole] = useState(options[0].value);
   const [errors, setErrors] = useState("");
   const [isLoading, setIsLoading] = useState("");
 
@@ -13,16 +20,19 @@ function RegisterForm({ onLogin }) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch("/register", {
+    fetch("http://127.0.0.1:3000/users", {
+      mode: 'no-cors',
       method: "POST",
       headers: {
+       
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email,
         password,
-        password_confirmation: passwordConfirmation,
-        number,
+        password_confirmation,
+        username,
+        role,
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -31,9 +41,10 @@ function RegisterForm({ onLogin }) {
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
+      console.log(role)
     });
   }
-
+ 
   return (
     <div className="form-container">
       <div className="form-details">
@@ -49,12 +60,12 @@ function RegisterForm({ onLogin }) {
             name="email"
           />
           <input
-            value={number}
-            onChange={(e) => setNumber(e.target.value)}
-            type="number"
-            placeholder="☏ Phone Number"
-            id="number"
-            name="number"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            type="text"
+            placeholder="☏ username"
+            id="username"
+            name="username"
           />
           <input
             value={password}
@@ -67,16 +78,20 @@ function RegisterForm({ onLogin }) {
           <input
             type="password"
             id="password_confirmation"
-            value={passwordConfirmation}
+            value={password_confirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             placeholder="🔓 Confirm Password"
             autoComplete="current-password"
           />
-          <select>
-            <option value="Job Seeker">⇩ Job Seeker</option>
-            <option value="Employer">⇩ Employer</option>
+          <select value={role} onChange={(e) => setRole(e.target.value)}>
+            {options.map(option =>(
+         <option key={option.value} value={option.value}> 
+         {option.text} </option>
+             
+            ))}
+           
           </select>
-          <button type="submit" className="formButton">
+          <button type="submit" className="formButton" onClick={handleSubmit}>
             Sign Up
           </button>
         </form>
