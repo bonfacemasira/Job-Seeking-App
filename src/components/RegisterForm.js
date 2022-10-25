@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function RegisterForm({ onLogin }) {
+function RegisterForm({ setUser }) {
   const options = [
     { value: 1, text: 'job_seeker'},
     { value: 2, text: 'employer'}
@@ -13,15 +13,15 @@ function RegisterForm({ onLogin }) {
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
   const [role, setRole] = useState(options[0].value);
-  const [errors, setErrors] = useState("");
-  const [isLoading, setIsLoading] = useState("");
+  // const [errors, setErrors] = useState("");
+  // const [isLoading, setIsLoading] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    setErrors([]);
-    setIsLoading(true);
+    // setErrors([]);
+    // setIsLoading(true);
     fetch("http://127.0.0.1:3000/users", {
-      mode: 'no-cors',
+    
       method: "POST",
       headers: {
        
@@ -34,15 +34,12 @@ function RegisterForm({ onLogin }) {
         username,
         role,
       }),
-    }).then((r) => {
-      setIsLoading(false);
-      if (r.ok) {
-        r.json().then((user) => onLogin(user));
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-      console.log(role)
-    });
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((user) => setUser(user));
+        }
+      });
+
   }
  
   return (
