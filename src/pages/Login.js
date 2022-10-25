@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
-import Dashboard from "../components/dashboard/Dashboard";
+// import AsideBar from "../components/asidebar/AsideBar";
 
 function Login() {
   return (
@@ -10,7 +10,6 @@ function Login() {
       <Routes>
         <Route path="/login" element={ <LoginForm /> } />
         <Route path="/register" element={ <RegisterForm/> } />
-        <Route path="/dashboard" element={ <Dashboard/> } />
       </Routes>
     </main>
   );
