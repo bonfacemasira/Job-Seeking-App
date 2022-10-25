@@ -1,10 +1,10 @@
 import React from "react";
-import AsideBar from "../asidebar/AsideBar";
+import Table from "../table/Table";
 // import LoginForm from "../LoginForm";
 function Dashboard() {
   return (
     <>
-      <AsideBar/>
+      <Table/>
       {/* <LoginForm/> */}
     </>
   );
