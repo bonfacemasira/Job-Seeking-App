@@ -4,7 +4,7 @@ import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 // import LoginForm from "../LoginForm";
 import { Routes, Route } from "react-router-dom";
-import LoginForm from "../LoginForm";
+import Dashboard from "../dashboard/Dashboard";
 import RegisterForm from "../RegisterForm";
 import NavBar from "../NavBar";
 
@@ -35,7 +35,7 @@ function AsideBar() {
           )}
         </div>
         <Routes>
-          <Route path="/login" element={<LoginForm />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/register" element={<RegisterForm />} />
         </Routes>
       </main>
