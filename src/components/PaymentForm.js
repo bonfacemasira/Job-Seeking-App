@@ -47,7 +47,7 @@ function PaymentForm({ onLogin }) {
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             type="phoneNumber"
-            placeholder="✉️ Phone Number"
+            placeholder=" Phone Number"
             id="phoneNumber"
             name="phoneNumber"
           />

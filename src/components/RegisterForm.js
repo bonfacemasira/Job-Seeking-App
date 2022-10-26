@@ -60,7 +60,7 @@ function RegisterForm({ setUser }) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             type="text"
-            placeholder="☏ username"
+            placeholder="Username"
             id="username"
             name="username"
           />

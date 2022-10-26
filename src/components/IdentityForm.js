@@ -56,8 +56,12 @@ function IdentityForm({ onLogin }) {
           <input 
           value={passport}
           onChange={(e) => setPassport(e.target.value)}
+<<<<<<< HEAD
           type="passport" 
           //type="file"
+=======
+          type="file"
+>>>>>>> e8cd12fb720db19f8c94d5110a93709b3f9aae7f
           placeholder="🔓Upload your passport image"
           id="passport" 
           name="passport" 
@@ -65,8 +69,12 @@ function IdentityForm({ onLogin }) {
           <input 
           value={idImage}
           onChange={(e) => setIdImage(e.target.value)}
+<<<<<<< HEAD
           type="idImage" 
           //type="file"
+=======
+          type="file"
+>>>>>>> e8cd12fb720db19f8c94d5110a93709b3f9aae7f
           placeholder="🔓Upload ID image"
           id="idImage" 
           name="IdImage" 
