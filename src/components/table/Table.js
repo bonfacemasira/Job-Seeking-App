@@ -1,11 +1,11 @@
-import {  useMemo } from "react";
+import {  useMemo, useState } from "react";
 import { useTable,useGlobalFilter } from "react-table";
 import { COLUMNS } from "./column";
 
-import request from "graphql-request";
+// import request from "graphql-request";
 
-function Table({data}) {
-//   const [data, setData] = useState([]);
+function Table() {
+  const [data, setData] = useState([]);
   
   const columns = useMemo(() => COLUMNS, []);
   // const tableInstance = useTable({ columns, data });
