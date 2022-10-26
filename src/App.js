@@ -17,12 +17,12 @@ function App() {
       }
     });
   }, []);
-  // a trial to check if user exists 
-  // i am using it to view the dashboard page 
-  if (!user)
+  // a trial to check if user exists
+  // i am using it to view the dashboard page
+  if (user === "admin")
     return (
       <ProSidebarProvider>
-        <AsideBar/>
+        <AsideBar />
       </ProSidebarProvider>
     );
 
