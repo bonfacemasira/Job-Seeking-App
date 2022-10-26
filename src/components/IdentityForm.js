@@ -56,8 +56,7 @@ function IdentityForm({ onLogin }) {
           <input 
           value={passport}
           onChange={(e) => setPassport(e.target.value)}
-          type="passport" 
-          //type="file"
+          type="file"
           placeholder="🔓Upload your passport image"
           id="passport" 
           name="passport" 
@@ -65,8 +64,7 @@ function IdentityForm({ onLogin }) {
           <input 
           value={idImage}
           onChange={(e) => setIdImage(e.target.value)}
-          type="idImage" 
-          //type="file"
+          type="file"
           placeholder="🔓Upload ID image"
           id="idImage" 
           name="IdImage" 
