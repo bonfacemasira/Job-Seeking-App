@@ -5,33 +5,7 @@ import { COLUMNS } from "./column";
 import request from "graphql-request";
 
 function Table() {
-  const [data, setData] = useState([]);
-
-  // useeffect fake data...
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const { datasets } =await axios.get("https://reqres.in/api/users?page=1").then((resp) => {
-//         let datasets = resp.data.data.sort((a, b) =>
-//          a.first_name.localeCompare(b.first_name)
-//       )}
-//       )
-//         `
-//                 {
-//                     datasets (first:50) {
-//                         id_number
-//                         firstName
-//                         lastName
-//                         email
-//                         department
-//                         dateJoined
-//                         }
-//                 }
-//                 `
-//       );
-//       setData(datasets);
-//     };
-//     fetchData();
-//   }, []);
+//   const [data, setData] = useState([]);
   
   const columns = useMemo(() => COLUMNS, []);
   // const tableInstance = useTable({ columns, data });
