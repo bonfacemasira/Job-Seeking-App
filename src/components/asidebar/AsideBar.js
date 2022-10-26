@@ -7,7 +7,6 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "../../pages/Dashboard";
 import Employers from "../../pages/Employers";
 import JobSeekers from "../../pages/JobSeekers";
-import RegisterForm from "../RegisterForm";
 import NavBar from "../NavBar";
 
 function AsideBar() {
@@ -39,7 +38,7 @@ function AsideBar() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/job_seekers" element={<JobSeekers />} />
-          <Route path="/job_seekers" element={<Employers />} />
+          <Route path="/employers" element={<Employers />} />
         </Routes>
       </main>
     </div>
