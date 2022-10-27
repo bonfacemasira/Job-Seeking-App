@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
+import IdentityForm from "./components/IdentityForm";
 import VerificationForm from "./components/VerificationForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import AsideBar from "./components/asidebar/AsideBar";
@@ -23,8 +24,8 @@ function App() {
       }
     });
   }, []);
-  // a trial to check if user exists
-  // i am using it to view the dashboard page
+  // a trial to check if user exists 
+  // i am using it to view the dashboard page 
   if (user === "admin")
     return (
       <ProSidebarProvider>
@@ -36,7 +37,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Login />
-      {/* <IdentityForm /> */}
+      <IdentityForm />
       {/* <VerificationForm /> */}
     </div>
   );
