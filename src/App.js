@@ -9,6 +9,12 @@ import AsideBar from "./components/asidebar/AsideBar";
 function App() {
   const [user, setUser] = useState(null);
 
+  //to delete set user to admin
+  useEffect(()=>{
+    setUser("admin")
+  },[])
+
+
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
