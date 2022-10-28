@@ -2,15 +2,20 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
-//import IdentityForm from "./components/IdentityForm";
+
+import IdentityForm from "./components/IdentityForm";
 import VerificationForm from "./components/VerificationForm";
+import { ProSidebarProvider } from "react-pro-sidebar";
+import AsideBar from "./components/asidebar/AsideBar";
+import Job from "./components/jobs/job";
+
 
 function App() {
   const [user, setUser] = useState(null);
 
   //to delete set user to admin
   useEffect(()=>{
-    setUser("admin")
+    setUser("jobseeker")
   },[])
 
 
@@ -22,8 +27,8 @@ function App() {
       }
     });
   }, []);
-  // a trial to check if user exists
-  // i am using it to view the dashboard page
+  // a trial to check if user exists 
+  // i am using it to view the dashboard page 
   if (user === "admin")
     return (
       <ProSidebarProvider>
@@ -32,12 +37,17 @@ function App() {
     );
 
   return (
-  <div className="App">
-    <NavBar />
-    <Login />
-    {/* <IdentityForm /> */}
-    <VerificationForm />
-  </div>);
+
+    <div className="App">
+      <NavBar />
+      <Login />
+
+      <Job/>
+      {/* <IdentityForm /> */}
+      {/* <VerificationForm /> */}
+    </div>
+  );
+
 }
 
 export default App;

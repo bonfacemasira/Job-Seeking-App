@@ -1,0 +1,13 @@
+#sect{
+    margin-top: 80px;
+    margin-bottom: 30px;
+    
+
+}
+#sect .right{
+    display: flex;
+}
+img{
+    width: 200px;
+    height: 300px;
+}
