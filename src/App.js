@@ -12,7 +12,7 @@ function App() {
 
   //to delete set user to admin
   useEffect(()=>{
-    setUser("admin")
+    setUser("jobseeker")
   },[])
 
 
