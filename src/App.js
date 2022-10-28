@@ -10,6 +10,12 @@ import Job from "./components/jobs/job";
 function App() {
   const [user, setUser] = useState(null);
 
+  //to delete set user to admin
+  useEffect(()=>{
+    setUser("jobseeker")
+  },[])
+
+
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -20,10 +26,10 @@ function App() {
   }, []);
   // a trial to check if user exists 
   // i am using it to view the dashboard page 
-  if (user)
+  if (user === "admin")
     return (
       <ProSidebarProvider>
-        <AsideBar/>
+        <AsideBar />
       </ProSidebarProvider>
     );
 
@@ -31,6 +37,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Login />
+
       <Job/>
       {/* <IdentityForm /> */}
       {/* <VerificationForm /> */}

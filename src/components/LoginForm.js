@@ -9,8 +9,8 @@ function LoginForm({ setUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    
-    fetch("http://127.0.0.1:3000/user/sign_in", {
+
+    fetch("http://127.0.0.1:3000/users/sign_in", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,6 @@ function LoginForm({ setUser }) {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
-   
     });
   }
 
