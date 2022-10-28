@@ -2,11 +2,14 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
+
 import IdentityForm from "./components/IdentityForm";
 import VerificationForm from "./components/VerificationForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import AsideBar from "./components/asidebar/AsideBar";
 import Job from "./components/jobs/job";
+
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -34,6 +37,7 @@ function App() {
     );
 
   return (
+
     <div className="App">
       <NavBar />
       <Login />
@@ -43,6 +47,7 @@ function App() {
       {/* <VerificationForm /> */}
     </div>
   );
+
 }
 
 export default App;
