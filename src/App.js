@@ -37,7 +37,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Login />
-      <IdentityForm />
+      {/* <IdentityForm /> */}
       {/* <VerificationForm /> */}
     </div>
   );
