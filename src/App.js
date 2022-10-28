@@ -9,6 +9,12 @@ import AsideBar from "./components/asidebar/AsideBar";
 function App() {
   const [user, setUser] = useState(null);
 
+  //to delete set user to admin
+  useEffect(()=>{
+    setUser("admin")
+  },[])
+
+
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -17,12 +23,12 @@ function App() {
       }
     });
   }, []);
-  // a trial to check if user exists 
-  // i am using it to view the dashboard page 
-  if (!user)
+  // a trial to check if user exists
+  // i am using it to view the dashboard page
+  if (user === "admin")
     return (
       <ProSidebarProvider>
-        <AsideBar/>
+        <AsideBar />
       </ProSidebarProvider>
     );
 

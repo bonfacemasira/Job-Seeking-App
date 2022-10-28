@@ -5,6 +5,7 @@ import { COLUMNS } from "./column";
 // import request from "graphql-request";
 
 function Table() {
+    //after receiving data delete this variable
   const [data, setData] = useState([]);
   
   const columns = useMemo(() => COLUMNS, []);
@@ -24,6 +25,7 @@ function Table() {
     const { globalFilter } = state;
 
 
+    //usiguze
     return (
         <div>
             <div className="search-container">
