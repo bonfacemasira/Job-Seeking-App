@@ -27,3 +27,76 @@ th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+.section{
+  margin-top: 80px;
+  margin-bottom: 30px;
+  
+
+}
+ .right{
+ display: flex; 
+    
+}
+img{
+  border-radius: 50%;
+ border: 1px solid black;
+}
+.align-left{
+  margin-top: 80px;
+  margin-left: 80px;
+  width:50% ;
+
+}
+.header{
+  color: black;
+}
+.header1{
+  color: black;
+  font-weight: bold;
+
+}
+.location{
+  font-style: italic;
+  font-weight: lighter;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.summary{
+  margin-top: 40px;
+}
+.description{
+  margin-top: 40px;
+}
+.responsibilities{
+  margin-top: 40px;
+}
+.header2{
+  color: black;
+}
+.qualification{
+  margin-top: 40px;
+}
+.span{
+  margin-top: 60px;
+  margin-left: 650px;
+}
+.accept{
+  background: #FFDB3B;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 20px;
+
+}
+
+.decline{
+  margin-left: 40px;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 6px;
+}
+.header4{
+  color: black;
+  font-size: 15px;
+}
+
