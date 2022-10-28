@@ -6,7 +6,7 @@ import IdentityForm from "./components/IdentityForm";
 import VerificationForm from "./components/VerificationForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import AsideBar from "./components/asidebar/AsideBar";
-
+import Job from "./components/jobs/job";
 function App() {
   const [user, setUser] = useState(null);
 
@@ -31,7 +31,8 @@ function App() {
     <div className="App">
       <NavBar />
       <Login />
-      <IdentityForm />
+      <Job/>
+      {/* <IdentityForm /> */}
       {/* <VerificationForm /> */}
     </div>
   );
