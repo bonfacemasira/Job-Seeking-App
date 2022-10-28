@@ -16,7 +16,7 @@ h2 {
   color: white;
 }
 .text {
-  color: #FFDB3B;
+  color: #ffdb3b;
 }
 
 h3 {
@@ -27,26 +27,29 @@ h4 {
   margin-bottom: 20px;
 }
 h5 {
-  color: #FFDB3B;
+  color: #ffdb3b;
   margin-bottom: 20px;
-  text-align:left
-
+  text-align: left;
 }
-p{
-  color: white;
-  text-align:left;
-  font-size: .83em;
+p {
+  /* color: white; */
+  text-align: left;
+  font-size: 0.83em;
 }
 #word {
-  color: #FFDB3B;
+  color: #ffdb3b;
 }
 
 a {
-  color: #FFDB3B;
+  color: #ffdb3b;
   text-decoration: none;
 }
 
-.login-form , .register-form , .payment-form, .identity-form, .verification-form {
+.login-form,
+.register-form,
+.payment-form,
+.identity-form,
+.verification-form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -66,7 +69,7 @@ a {
 .form-details {
   flex-direction: column;
   align-items: center;
-  text-align: center; 
+  text-align: center;
   width: 90%;
   padding: 2rem;
   margin: auto;
@@ -98,15 +101,14 @@ select {
   padding: 1rem;
   border: none;
   border-radius: 10px;
-
 }
- 
+
 .navButton {
   color: black;
   /* text-transform: uppercase; */
   font-weight: bolder;
   text-decoration: none;
-  background: #FFDB3B;
+  background: #ffdb3b;
   padding: 1rem;
   border-radius: 10px;
   display: inline-block;
@@ -115,14 +117,13 @@ select {
   cursor: pointer;
 }
 
-
 .formButton {
   /* font-family: 'Poppins'; */
   color: black !important;
   text-transform: uppercase;
   font-weight: bolder;
   text-decoration: none;
-  background: #FFDB3B;
+  background: #ffdb3b;
   padding: 1rem;
   border-radius: 10px;
   display: inline-block;
@@ -156,7 +157,7 @@ select {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #FFDB3B;
+  color: #ffdb3b;
 }
 
 .Nav {
