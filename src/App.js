@@ -2,17 +2,17 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 
-import IdentityForm from "./components/IdentityForm";
-import VerificationForm from "./components/VerificationForm";
+// import IdentityForm from "./components/IdentityForm";
+// import VerificationForm from "./components/VerificationForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import AsideBar from "./components/asidebar/AsideBar";
 import EditProfile from "./pages/EditProfile";
 
-import UploadJob from "./components/Employer/UploadJob";
+// import UploadJob from "./components/Employer/UploadJob";
 
-import Job from "./components/jobs/job";
+// import Job from "./components/jobs/job";
 
 
 
@@ -21,7 +21,7 @@ function App() {
 
   //to delete set user to admin
   useEffect(()=>{
-    setUser("jobseeker")
+    setUser("employer")
   },[])
 
 
@@ -48,9 +48,9 @@ function App() {
   <div className="App">
     <NavBar />
     {/* <Login /> */}
-    <UploadJob />
+    {/* <UploadJob /> */}
     {/* <VerificationForm /> */}
-      <Job/>
+      <EditProfile/>
 
       {/* <IdentityForm /> */}
     </div>
