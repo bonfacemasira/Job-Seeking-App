@@ -93,7 +93,7 @@ function RegisterForm({ setUser }) {
           </button>
         </form>
         <h3>
-          <span class="passwordField">
+          <span className="passwordField">
             Already have an account? <Link to="/login">Login</Link>
           </span>
         </h3>

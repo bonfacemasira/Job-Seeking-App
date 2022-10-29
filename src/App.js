@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import VerificationForm from "./components/VerificationForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import AsideBar from "./components/asidebar/AsideBar";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -19,16 +20,17 @@ function App() {
   }, []);
   // a trial to check if user exists 
   // i am using it to view the dashboard page 
-  if (!user)
-    return (
-      <ProSidebarProvider>
-        <AsideBar/>
-      </ProSidebarProvider>
-    );
+  // if (!user)
+  //   return (
+  //     <ProSidebarProvider>
+  //       <AsideBar/>
+  //     </ProSidebarProvider>
+  //   );
 
   return (
     <div className="App">
       <NavBar />
+      <EditProfile />
       <Login />
       {/* <IdentityForm /> */}
       {/* <VerificationForm /> */}
