@@ -1,0 +1,66 @@
+.talents{
+    margin-left: 50px;
+}
+.search-form{
+    margin-left: 40px;
+}
+.search -form, input{
+    display: inline;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 0 10px;
+    font-size: 16px;
+    outline: none;
+}
+h2{
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+p{
+    color: #800080;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+select{
+    display: inline;
+    background: #fff;
+    width: 150px;
+    height: 30px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.btn{
+   margin-top: 30px;
+    margin-left: 300px;
+}
+
+.search-btn{
+    width: 80px;
+    height: 40px;
+    margin-left: 2px;
+    border: none;
+    background: #ffff00;
+    border-radius: 4px;
+}
+
+.reset-all{
+    width: 100px;
+    height: 40px;
+    border: none;
+    background: #fff;
+    color: #800080;
+    font-weight: 800;
+}
+

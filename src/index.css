@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -27,3 +27,80 @@ th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+/* hides richtext status bar */
+.jodit-status-bar {
+  visibility: hidden;
+}
+.section{
+  margin-top: 80px;
+  margin-bottom: 30px;
+  
+
+}
+ .right{
+ display: flex; 
+    
+}
+img{
+  border-radius: 50%;
+ border: 1px solid black;
+}
+.align-left{
+  margin-top: 80px;
+  margin-left: 80px;
+  width:50% ;
+
+}
+.header{
+  color: black;
+}
+.header1{
+  color: black;
+  font-weight: bold;
+
+}
+.location{
+  font-style: italic;
+  font-weight: lighter;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.summary{
+  margin-top: 40px;
+}
+.description{
+  margin-top: 40px;
+}
+.responsibilities{
+  margin-top: 40px;
+}
+.header2{
+  color: black;
+}
+.qualification{
+  margin-top: 40px;
+}
+.span{
+  margin-top: 60px;
+  margin-left: 650px;
+}
+.accept{
+  background: #FFDB3B;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 20px;
+
+}
+
+.decline{
+  margin-left: 40px;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 6px;
+}
+.header4{
+  color: black;
+  font-size: 15px;
+}
+

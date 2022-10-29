@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 
 function RegisterForm({ setUser }) {
   const options = [
-    { value: 1, text: 'job_seeker'},
-    { value: 2, text: 'employer'}
-
-  ]
+    { name: 1, value: "job_seeker" },
+    { name: 2, value: "employer" },
+  ];
 
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -21,10 +20,8 @@ function RegisterForm({ setUser }) {
     // setErrors([]);
     // setIsLoading(true);
     fetch("http://127.0.0.1:3000/users", {
-    
       method: "POST",
       headers: {
-       
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -34,14 +31,13 @@ function RegisterForm({ setUser }) {
         username,
         role,
       }),
-      }).then((r) => {
-        if (r.ok) {
-          r.json().then((user) => setUser(user));
-        }
-      });
-
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => console.log(user));
+      }
+    });
   }
- 
+
   return (
     <div className="form-container">
       <div className="form-details">
@@ -81,12 +77,11 @@ function RegisterForm({ setUser }) {
             autoComplete="current-password"
           />
           <select value={role} onChange={(e) => setRole(e.target.value)}>
-            {options.map(option =>(
-         <option key={option.value} value={option.value}> 
-         {option.text} </option>
-             
+            {options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.value}{" "}
+              </option>
             ))}
-           
           </select>
           <button type="submit" className="formButton" onClick={handleSubmit}>
             Sign Up
