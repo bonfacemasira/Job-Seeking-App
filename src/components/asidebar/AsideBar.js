@@ -3,7 +3,6 @@ import React from "react";
 import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 // import LoginForm from "../LoginForm";
-import { Routes, Route } from "react-router-dom";
 import Dashboard from "../../pages/Dashboard";
 import Employers from "../../pages/Employers";
 import JobSeekers from "../../pages/JobSeekers";
@@ -35,11 +34,6 @@ function AsideBar() {
             <button onClick={() => collapseSidebar()}>Collapse</button>
           )}
         </div>
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/job_seekers" element={<JobSeekers />} />
-          <Route path="/employers" element={<Employers />} />
-        </Routes>
       </main>
     </div>
   );
