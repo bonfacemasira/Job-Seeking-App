@@ -8,6 +8,7 @@ import IdentityForm from "./components/IdentityForm";
 import VerificationForm from "./components/VerificationForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import AsideBar from "./components/asidebar/AsideBar";
+import EditProfile from "./pages/EditProfile";
 
 import UploadJob from "./components/Employer/UploadJob";
 
@@ -34,6 +35,7 @@ function App() {
   }, []);
   // a trial to check if user exists 
   // i am using it to view the dashboard page 
+
   if (user === "admin")
     return (
       <ProSidebarProvider>
@@ -49,6 +51,7 @@ function App() {
     <UploadJob />
     {/* <VerificationForm /> */}
       <Job/>
+
       {/* <IdentityForm /> */}
     </div>
   );
