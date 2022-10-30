@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Error from "./Error";
 
-function LoginForm({ setUser }) {
+function LoginForm({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [errors, setErrors] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
-
+    setIsLoading(true);
     fetch("http://127.0.0.1:3000/users/sign_in", {
       method: "POST",
       headers: {
@@ -17,8 +18,11 @@ function LoginForm({ setUser }) {
       },
       body: JSON.stringify({ email, password }),
     }).then((r) => {
+      setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => onLogin(user));
+      } else {
+        r.json().then((err) => setErrors(err.error));
       }
     });
   }
@@ -46,8 +50,16 @@ function LoginForm({ setUser }) {
             name="password"
           />
           <button type="submit" className="formButton">
-            LogIn
+            {isLoading ? "Loading..." : "Login"}
           </button>
+          <div>
+            {/* {errors.map((err) => (
+              <span key={err}>{err}</span>
+            ))} */}
+            {errors.map((err) => (
+              <Error key={err}>{err}</Error>
+            ))}
+          </div>
         </form>
 
         <h3>
