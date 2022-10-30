@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
 
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 
 import IdentityForm from "./components/IdentityForm";
 import VerificationForm from "./components/VerificationForm";
@@ -13,10 +13,6 @@ import RegisterForm from "./components/RegisterForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import AsideBar from "./components/asidebar/AsideBar";
 import EditProfile from "./pages/EditProfile";
-
-import Dashboard from "./pages/Dashboard";
-import Employers from "./pages/Employers";
-import JobSeekers from "./pages/JobSeekers";
 
 import UploadJob from "./components/Employer/UploadJob";
 
@@ -27,7 +23,7 @@ function App() {
 
   //to delete set user to admin
   useEffect(() => {
-    setUser("employer");
+    setUser("admin");
   }, []);
 
   useEffect(() => {
@@ -41,31 +37,38 @@ function App() {
   // a trial to check if user exists
   // i am using it to view the dashboard page
 
-  if (user === "admin")
-    return (
-      <ProSidebarProvider>
-        <AsideBar />
-      </ProSidebarProvider>
-    );
+  // if (user === "admin")
+  //   return (
+  //     <ProSidebarProvider>
+  //       <AsideBar />
+  //     </ProSidebarProvider>
+  //   );
 
   return (
     <div className="App">
-      <NavBar />
+      {user === "admin" ? (
+        <ProSidebarProvider>
+          <AsideBar />
+        </ProSidebarProvider>
+      ) : (
+        <NavBar />
+      )}
       <main>
         <Routes>
-          <Route path="/login" element={<LoginForm />} />
+          {/* auth */}
+          <Route path="/login" element={<LoginForm setUser={setUser} />} />
           <Route path="/register" element={<RegisterForm />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/job_seekers" element={<JobSeekers />} />
-          <Route path="/employers" element={<Employers />} />
+          <Route path="/verify" element={<VerificationForm />} />
+          <Route path="/confirm" element={<IdentityForm />} />
+
+          {/* jobseekers */}
+          <Route path="/job_seekers/edit_profile" element={<EditProfile />} />
+          <Route path="/job_seeker/job_offer" element={<Job />} />
+
+          {/* employers */}
+          <Route path="/employer/job_upload" element={<UploadJob />} />
         </Routes>
       </main>
-      {/* <Login /> */}
-      {/* <UploadJob /> */}
-      {/* <VerificationForm /> */}
-      {/* <EditProfile/> */}
-
-      {/* <IdentityForm /> */}
     </div>
   );
 }
