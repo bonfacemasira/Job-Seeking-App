@@ -13,7 +13,7 @@ import EditProfile from "./pages/EditProfile";
 import UploadJob from "./components/Employer/UploadJob";
 
 import Job from "./components/jobs/job";
-
+//import Information from "./components/information";
 
 
 function App() {
@@ -50,7 +50,8 @@ function App() {
     {/* <Login /> */}
     <UploadJob />
     {/* <VerificationForm /> */}
-      <Job/>
+      {/* <Job/> */}
+      <Information />
 
       {/* <IdentityForm /> */}
     </div>
@@ -58,5 +59,6 @@ function App() {
 
 
 }
+
 
 export default App;
