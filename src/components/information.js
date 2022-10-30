@@ -6,7 +6,7 @@ function information() {
 
             <div className="right">
                 <div className="align-left">
-                  <div className="Location">
+                  <div className="location">
                     <h3 className='title'>Address</h3>
                     <h4 className='address'>Timba Eldoret<button class="button1">Primary</button></h4>
                     <p className='title'>159 Inos Street<br/>
@@ -34,33 +34,33 @@ function information() {
               <input type="button" class="button2" value="Download Resume"/>
               </div>
               
-             <div className="description">
+             <div className="contact">
                  <h1 className="title"> Contact Information </h1>
                  <p className="header4"> Phone: +25479988182<br/>Email: johndoe2gmail.com<br/>Website: www.johndoe.com</p>
                  
 
              </div>
-             <div className="responsibilities"> 
+             <div className="experience"> 
              <h1 className="title">Experience</h1>            
              <p className="header4">
                <b>Infosys</b><br/> Product& UI/UX Designer<br/>April 2018- Present | Eldoret Kenya
              </p>
 
              </div>
-             <div className="qualification">
+             <div className="education">
                  <h1 className="title">Education</h1>
                  <p className="header4">
                <b>Kisumu Poly</b><br/> Product& UI/UX Designer<br/>April 2018- Present | Eldoret Kenya
              </p>
              </div>
-             <div className="responsibilities"> 
+             <div className="accomplishment"> 
              <h1 className="title">Accomplishment</h1>            
              <p className="header4">
                <b>Infosys</b><br/> Product& UI/UX Designer<br/>April 2018- Present | Eldoret Kenya
              </p>
 
              </div>
-             <div className="responsibilities"> 
+             <div className="certification"> 
              <h1 className="title">Certification</h1>            
              <p className="header4">
                <b>Infosys</b><br/> Product& UI/UX Designer<br/>April 2018- Present | Eldoret Kenya
@@ -72,7 +72,7 @@ function information() {
              </div>
 
              <div className="span">
-                <span className="accept"> Verify </span>
+                <span className="verify"> Verify </span>
                 <span className="decline"> Decline </span>
             </div> 
             

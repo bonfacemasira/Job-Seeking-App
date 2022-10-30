@@ -16,6 +16,7 @@ import Job from "./components/jobs/job";
 //import Information from "./components/information";
 
 
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -47,13 +48,14 @@ function App() {
 
   <div className="App">
     <NavBar />
-    {/* <Login /> */}
+    <Login />
     <UploadJob />
     {/* <VerificationForm /> */}
       <Job/>
       {/* <Information /> */}
 
       {/* <IdentityForm /> */}
+      
     </div>
   );
 

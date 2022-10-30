@@ -168,26 +168,25 @@ select {
   right: 8px;
   width: 50%;
 }
-/* information component */
-.title {
-  color: rgb(102, 98, 98);
-  margin-bottom: 20px;
-  font-size: medium;
-}
 
-.address {
-  color: black;
-}
-.buttons{
-  display: flex;
-  }
-.button1{
-  background-color: #ffdb3b;
-  color:black
-}
-.button2{
-  background-color: #020566;
-  text-align: center;
-  color:white
+/* card */
+.container{
+ 
+  margin-left: 100px;
+  padding-left: 190px;
+  display: flex; 
+  flex-wrap: wrap;
+  align-items: center;
+ }
 
+.card
+{
+border: 1px solid black;
+height: 300px;
+margin-top: 180px;
+width: 180px;
+float: left;
+background-color: white;
+margin-left: 32px;
+border-radius: 10px; 
 }

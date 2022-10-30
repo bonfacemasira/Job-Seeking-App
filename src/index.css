@@ -66,20 +66,12 @@ img{
   margin-top: 20px;
   margin-left: 40px;
 }
-.summary{
+.summary, .description, .responsibilities, .qualification{
   margin-top: 40px;
 }
-.description{
-  margin-top: 40px;
-}
-.responsibilities{
-  margin-top: 40px;
-}
+
 .header2{
   color: black;
-}
-.qualification{
-  margin-top: 40px;
 }
 .span{
   margin-top: 60px;
@@ -93,7 +85,7 @@ img{
 
 }
 
-.decline{
+.cancel{
   margin-left: 40px;
   border: 1px solid black;
   padding: 1rem;
@@ -104,3 +96,46 @@ img{
   font-size: 15px;
 }
 
+/* information */
+/* information component */
+.title {
+  color: rgb(102, 98, 98);
+  margin-bottom: 20px;
+  font-size: medium;
+}
+
+.address {
+  color: black;
+}
+.buttons{
+  display: flex;
+  }
+.button1{
+  background-color: #ffdb3b;
+  color:black
+}
+.button2{
+  background-color: #020566;
+  text-align: center;
+  color:white
+
+}
+.accomplishment, .education, .certification, .contact, .experience{
+  margin-top: 40px;
+}
+
+.verify{
+  background: #FFDB3B;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 20px;
+
+}
+
+.decline{
+  background:#020566;
+  margin-left: 40px;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 6px;
+}
