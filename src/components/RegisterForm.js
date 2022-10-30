@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Error from "./Error";
 
 function RegisterForm({ onLogin }) {
+  const navigate = useNavigate();
   const options = [
     { name: 1, value: "job_seeker" },
     { name: 2, value: "employer" },
@@ -36,6 +37,7 @@ function RegisterForm({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
+        navigate("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
