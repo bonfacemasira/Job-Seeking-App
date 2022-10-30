@@ -50,8 +50,8 @@ function App() {
     {/* <Login /> */}
     <UploadJob />
     {/* <VerificationForm /> */}
-      {/* <Job/> */}
-      <Information />
+      <Job/>
+      {/* <Information /> */}
 
       {/* <IdentityForm /> */}
     </div>
