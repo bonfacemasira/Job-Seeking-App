@@ -2,7 +2,7 @@ import "../App.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
-function NavBar() {
+function NavBar({user}) {
   return (
     <div className="wrapper">
       <h1 className="logo">JS</h1>
