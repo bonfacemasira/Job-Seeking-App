@@ -1,14 +1,14 @@
-import {  useMemo, useState } from "react";
+// import {  useMemo, useState } from "react";
 import { useTable,useGlobalFilter } from "react-table";
-import { COLUMNS } from "./column";
+// import { COLUMNS } from "./column";
 
 // import request from "graphql-request";
 
-function Table() {
+function Table({columns, data}) {
     //after receiving data delete this variable
-  const [data, setData] = useState([]);
+//   const [data, setData] = useState([]);
   
-  const columns = useMemo(() => COLUMNS, []);
+//   const columns = useMemo(() => COLUMNS, []);
   // const tableInstance = useTable({ columns, data });
   // From the tableInstance, the hook will return the necessary props for the table, body, and transformed data to create the header and cells for our table. Let's destructure directly to access these props:
 //   The useGlobalFilter allows us to filter the entire table based on any value passed into our filter text field.
