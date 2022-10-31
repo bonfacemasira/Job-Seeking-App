@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  padding: 1.875rem 0.9375rem;
+  background: #ffffff;
+  border-left: 0.625rem solid #ff4848;
+  box-shadow: 0 1rem 1.3125rem rgba(0, 0, 0, 0.25);
+}
+
+.timed {
+  padding: 0 1.25rem;
+  border-right: 0.0625rem solid rgba(0, 0, 0, 0.5);
+}
+.title {
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem;
+}
+.profile {
+  position: relative;
+  width: 4.3125rem;
+  height: 4.3125rem;
+  border-radius: 50%;
+  border: 2px solid red;
+}
+.profile img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.details,
+.date,
+.timed {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.name,
+.date_received,
+.time,
+.job,
+.statusPending,
+.duration {
+  color: black;
+  padding: 0.625rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.job,
+.statusPending,
+.duration {
+  color: rgba(0, 0, 0, 0.5);
+
+  font-weight: 400;
+}
+
+.date .statusPending {
+  color: #ff4848;
+}
