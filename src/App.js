@@ -27,23 +27,22 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch("http://127.0.0.1:3000/me").then((r) => {
+    fetch("http://127.0.0.1:3000/users/sign_in").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
-      setUser("");
     });
   }, []);
   //navigate user
   function navigateUser() {
     if (!user) {
-      return <Navigate to="/login" />;
-    } else if (user.role === "admin") {
-      return <Navigate to="/admin" />;
-    } else if (user.role === "employer") {
-      return <Navigate to="/employer" />;
-    } else if (user.role === "jobSeeker") {
-      return <Navigate to="/job_seeker" />;
+      return <Navigate replace to="/login" />;
+    } else if (user && user.role === "admin") {
+      return <Navigate replace to="/admin" />;
+    } else if (user && user.role === "employer") {
+      return <Navigate replace to="/employer" />;
+    } else if (user && user.role === "job_seeker") {
+      return <Navigate replace to="/job_seeker" />;
     }
   }
 
@@ -57,7 +56,7 @@ function App() {
   //     </ProSidebarProvider>
   //   );
   console.log("user", user);
-  console.log("user role", user.role);
+  // console.log("user role", user.role);
   // if (!user) {
   //   navigate.push("/login");
   // }
