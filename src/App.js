@@ -8,7 +8,7 @@ import NavBar from "./components/NavBar";
 // import VerificationForm from "./components/VerificationForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import AsideBar from "./components/asidebar/AsideBar";
-import EditProfile from "./pages/EditProfile";
+import Notifications from "./pages/Notifications";
 
 // import UploadJob from "./components/Employer/UploadJob";
 
@@ -50,7 +50,7 @@ function App() {
     {/* <Login /> */}
     {/* <UploadJob /> */}
     {/* <VerificationForm /> */}
-      <EditProfile/>
+      <Notifications/>
 
       {/* <IdentityForm /> */}
     </div>
