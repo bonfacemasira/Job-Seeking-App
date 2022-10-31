@@ -1,33 +1,37 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-
+import React, { useState, useEffect} from "react";
 import NavBar from "./components/NavBar";
-
+import { Route, Routes } from "react-router-dom";
+import RegisterForm from "./components/RegisterForm"
 // import Login from "./pages/Login";
-
-import IdentityForm from "./components/IdentityForm";
-import VerificationForm from "./components/VerificationForm";
 import LoginForm from "./components/LoginForm";
-import RegisterForm from "./components/RegisterForm";
+import IdentityForm from "./components/IdentityForm";
+// import VerificationForm from "./components/VerificationForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 // import { useNavigate } from "react-router-dom";
 import AsideBar from "./components/asidebar/AsideBar";
-import EditProfile from "./pages/EditProfile";
+import Finalization from "./components/Finalization";
+import Home from "./components/Home";
+// import EditProfile from "./pages/EditProfile";
 
 import UploadJob from "./components/Employer/UploadJob";
 
 import Job from "./components/jobs/job";
 
 function App() {
-  // const navigate = useNavigate();
+  
+ 
   const [user, setUser] = useState(null);
 
-  //to delete set user to admin
+  // to delete set user to admin
+  // useEffect(()=>{
+  //   setUser("employer")
+  // },[])
+
 
   useEffect(() => {
     // auto-login
-    fetch("http://127.0.0.1:3000/users/sign_in").then((r) => {
+    fetch("http://127.0.0.1:3000/users/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
@@ -49,59 +53,40 @@ function App() {
   // a trial to check if user exists
   // i am using it to view the dashboard page
 
-  // if (user === "admin")
-  //   return (
-  //     <ProSidebarProvider>
-  //       <AsideBar />
-  //     </ProSidebarProvider>
-  //   );
-  console.log("user", user);
-  // console.log("user role", user.role);
-  // if (!user) {
-  //   navigate.push("/login");
-  // }
-  if (!user) {
+  if (user === "admin")
     return (
-      <>
-        {/* <Navigate to="/login" /> */}
-
-        <NavBar user={user} />
-        <Routes>
-          <Route path="/login" element={<LoginForm onLogin={setUser} />} />
-          <Route
-            path="/register"
-            element={<RegisterForm onLogin={setUser} />}
-          />
-          <Route path="/" element={navigateUser()} />
-        </Routes>
-      </>
+      <ProSidebarProvider>
+        <AsideBar />
+      </ProSidebarProvider>
     );
-  }
-
+    
+  // useEffect(() => {
+  //   fetch("").then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //   });
+  // }, []);
   return (
-    <div className="App">
-      {user === "admin" ? (
-        <ProSidebarProvider>
-          <AsideBar />
-        </ProSidebarProvider>
-      ) : (
-        <NavBar user={user} />
-      )}
-      <main>
-        <Routes>
-          <Route path="/login" element={<LoginForm onLogin={setUser} />} />
-          <Route
-            path="/register"
-            element={<RegisterForm onLogin={setUser} />}
-          />
 
-          <Route path="/verify" element={<VerificationForm />} />
-          <Route path="/confirm" element={<IdentityForm />} />
-          <Route path="/" element={navigateUser()} />
+  <div className="App">
+    
+        <NavBar user={user} setUser={setUser}/>
+<Routes>
+  <Route exact path='/job_seeker_profile' element={<IdentityForm/>}/>
+  <Route exact path='/employer_profile' element={<Finalization/>}/>
+  <Route exact path='/job_seeker_profile' element={<IdentityForm/>}/>
+<Route exact path='/login' element={<LoginForm user={user} setUser={setUser}/>}/>
+<Route exact path='/register' element={<RegisterForm/>}/>
+<Route exact path='/' element={<Home/>}/>
+</Routes>
 
-          {/* jobseekers */}
-          <Route path="/job_seekers/edit_profile" element={<EditProfile />} />
-          <Route path="/job_seeker/job_offer" element={<Job />} />
+   
+    
+  
+    {/* <UploadJob /> */}
+    {/* <VerificationForm /> */}
+      {/* <EditProfile/> */}
 
           {/* employers */}
           <Route path="/employer/job_upload" element={<UploadJob />} />

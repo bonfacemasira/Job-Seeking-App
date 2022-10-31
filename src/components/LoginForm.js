@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import Error from "./Error";
+import { Link,useNavigate } from "react-router-dom";
 
-function LoginForm({ onLogin }) {
-  const navigate = useNavigate();
+function LoginForm({ setUser,user }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
+  // const [isLoading, setIsLoading] = useState(false);
+	const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
@@ -21,11 +19,21 @@ function LoginForm({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
-        navigate("/");
-      } else {
-        r.json().then((err) => setErrors(err.error));
+     
+        r.json().then((user) => setUser(user));
+
+        // navigate("/job_seeker_profile");
+        if (user.role === "job_seeker") {
+          navigate("/job_seeker_profile");
+        } else {
+          navigate("/employer_profile");
+        }
       }
+      else {
+				r.json().then((err) => setErrors(err.errors));
+			}
+      console.log(user.role)
+      
     });
   }
 
@@ -51,8 +59,9 @@ function LoginForm({ onLogin }) {
             id="password"
             name="password"
           />
-          <button type="submit" className="formButton">
-            {isLoading ? "Loading..." : "Login"}
+      
+          <button type="submit" className="formButton">  
+            LogIn
           </button>
           <div>
             {/* {errors.map((err) => (
