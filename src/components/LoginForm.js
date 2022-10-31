@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
-function LoginForm({ setUser }) {
+function LoginForm({ setUser,user }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
-
+	const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -18,8 +18,21 @@ function LoginForm({ setUser }) {
       body: JSON.stringify({ email, password }),
     }).then((r) => {
       if (r.ok) {
+     
         r.json().then((user) => setUser(user));
+
+        // navigate("/job_seeker_profile");
+        if (user.role === "job_seeker") {
+          navigate("/job_seeker_profile");
+        } else {
+          navigate("/employer_profile");
+        }
       }
+      else {
+				r.json().then((err) => setErrors(err.errors));
+			}
+      console.log(user.role)
+      
     });
   }
 
@@ -45,7 +58,8 @@ function LoginForm({ setUser }) {
             id="password"
             name="password"
           />
-          <button type="submit" className="formButton">
+      
+          <button type="submit" className="formButton">  
             LogIn
           </button>
         </form>
