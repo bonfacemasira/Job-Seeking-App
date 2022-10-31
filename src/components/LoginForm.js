@@ -9,7 +9,7 @@ function LoginForm({ setUser,user }) {
 	const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-
+    setIsLoading(true);
     fetch("http://127.0.0.1:3000/users/sign_in", {
       method: "POST",
       headers: {
@@ -17,6 +17,7 @@ function LoginForm({ setUser,user }) {
       },
       body: JSON.stringify({ email, password }),
     }).then((r) => {
+      setIsLoading(false);
       if (r.ok) {
      
         r.json().then((user) => setUser(user));
@@ -62,6 +63,14 @@ function LoginForm({ setUser,user }) {
           <button type="submit" className="formButton">  
             LogIn
           </button>
+          <div>
+            {/* {errors.map((err) => (
+              <span key={err}>{err}</span>
+            ))} */}
+            {errors.map((err) => (
+              <Error key={err}>{err}</Error>
+            ))}
+          </div>
         </form>
 
         <h3>
