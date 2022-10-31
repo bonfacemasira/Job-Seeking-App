@@ -3,6 +3,7 @@
   justify-content: space-around;
   align-items: center;
   width: 90%;
+  margin: 1rem;
   padding: 1.875rem 0.9375rem;
   background: #ffffff;
   border-left: 0.625rem solid #ff4848;
@@ -48,16 +49,25 @@
   color: black;
   padding: 0.625rem;
   font-weight: 500;
-  font-size: 1.5rem;
 }
 .job,
 .statusPending,
 .duration {
   color: rgba(0, 0, 0, 0.5);
-
+  font-size: 0.9rem;
   font-weight: 400;
 }
 
 .date .statusPending {
+    display: flex;
+    align-items: center;
   color: #ff4848;
+}
+
+.pending{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 .4rem 0 0;
+    background-color: #ff4848;
 }
