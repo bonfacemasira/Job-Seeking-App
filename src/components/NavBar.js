@@ -5,22 +5,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-function NavBar({ user, setUser })) {
+function NavBar({ user, setUser }) {
   //add user as a prop
-  
+
   const navigate = useNavigate();
 
-	function handleLogoutClick() {
-		fetch("http://127.0.0.1:3000/users/sign_out", { method: "DELETE" }).then((r) => {
-			if (r.ok) {
-				setUser(null);
-			}
+  function handleLogoutClick() {
+    fetch("http://127.0.0.1:3000/users/sign_out", { method: "DELETE" }).then(
+      (r) => {
+        if (r.ok) {
+          setUser(null);
+        }
 
-			if (r.ok){
-				navigate("/")
-			}
-		});
-	}
+        if (r.ok) {
+          navigate("/");
+        }
+      }
+    );
+  }
 
   return (
     <div className="wrapper">
@@ -52,10 +54,7 @@ function NavBar({ user, setUser })) {
             <button onClick={handleLogoutClick}>Logout</button>
           </>
         )}
-
       </nav>
-        )}
-      </div>
     </div>
   );
 }

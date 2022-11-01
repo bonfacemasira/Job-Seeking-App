@@ -111,7 +111,7 @@ function App() {
       </Routes>
 
 
-    <NavBar />
+    {/* <NavBar /> */}
     {/* <Login /> */}
     {/* <UploadJob /> */}
     {/* <VerificationForm /> */}
