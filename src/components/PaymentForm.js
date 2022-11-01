@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-function PaymentForm({ onLogin }) {
-  const [companyName, setCompanyName] = useState("");
+function PaymentForm({ onLogin}) {
+
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [payment, setPayment] = useState([]);
+  const [amount, setAmount] = useState("");
   const [errors, setErrors] = useState("");
   const [isLoading, setIsLoading] = useState("");
 
@@ -12,12 +12,12 @@ function PaymentForm({ onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("/payment", {
+    fetch(" https://096a-154-123-105-115.eu.ngrok.io/stkpush", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ companyName, phoneNumber, payment }),
+      body: JSON.stringify({ phoneNumber, amount }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
@@ -35,14 +35,7 @@ function PaymentForm({ onLogin }) {
         <h3 class="text">Please pay to subscribe</h3>
         <h3>It is a one time payment</h3>
         <form className="payment-form" onSubmit={handleSubmit}>
-          <input
-            value={companyName}
-            onChange={(e) => setCompanyName(e.target.value)}
-            type="companyName"
-            placeholder="✉️ Company Name"
-            id="companyName"
-            name="companyName"
-          />
+          
           <input
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
@@ -53,9 +46,9 @@ function PaymentForm({ onLogin }) {
           />
           
           <input
-            value={payment}
-            onChange={(e) => setPayment(e.target.value)}
-            type="payment"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            type="number"
             placeholder="Ksh 000"
             id="payment"
             name="payment"
