@@ -1,11 +1,15 @@
+import axios from "../api/Access";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 function RegisterForm({ setUser }) {
   const options = [
     { name: 1, value: "job_seeker" },
     { name: 2, value: "employer" },
   ];
+
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -19,23 +23,24 @@ function RegisterForm({ setUser }) {
     e.preventDefault();
     // setErrors([]);
     // setIsLoading(true);
-    fetch("http://127.0.0.1:3000/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-        password_confirmation,
-        username,
-        role,
-      }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
+    axios
+      .post("/users/signup", {
+        email: email,
+        password: password,
+        password_confirmation: password_confirmation,
+        username: username,
+        role: role,
+      })
+      .then((r) => {
+        localStorage.setItem("user", JSON.stringify(r.data.user));
+        localStorage.setItem("token", JSON.stringify(r.data.token));
+        localStorage.setItem("authenticated", JSON.stringify(true));
+        if (r.data.role === "job_seeker") {
+          navigate("/job_seeker_profile");
+        } else {
+          navigate("/employer_profile");
+        }
+      });
   }
 
   return (
