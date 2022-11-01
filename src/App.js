@@ -13,6 +13,7 @@ import UploadJob from "./components/Employer/UploadJob";
 
 import Job from "./components/jobs/job";
 //import Information from "./components/information";
+// import Card from "./components/Card";
 
 
 
@@ -60,6 +61,7 @@ function App() {
 
 
       {/* <IdentityForm /> */}
+      {/* <Card /> */}
       
     </div>
   );
