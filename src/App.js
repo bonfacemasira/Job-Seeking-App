@@ -82,8 +82,6 @@ function App() {
   return (
     <div className="App">
       <NavBar user={user} setUser={setUser} />
-
-      <Notifications />
       <Routes>
         <Route path="/employer/job_upload" element={<UploadJob />} />
         <Route
