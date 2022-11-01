@@ -85,7 +85,7 @@ function App() {
   return (
     <div className="App">
       <NavBar user={user} setUser={setUser} />
-      <Routes>
+      
         <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
