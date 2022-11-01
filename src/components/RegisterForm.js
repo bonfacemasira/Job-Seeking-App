@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Error from "./Error";
 
 function RegisterForm({ onLogin }) {
@@ -36,7 +36,7 @@ function RegisterForm({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => onLogin(user));
       }
     });
   }
