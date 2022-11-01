@@ -5,36 +5,36 @@ function LoginForm({ setUser,user }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 	const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    setIsLoading(true);
-    fetch("http://127.0.0.1:3000/users/sign_in", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    }).then((r) => {
-      setIsLoading(false);
-      if (r.ok) {
+  //   setIsLoading(true);
+  //   fetch("http://127.0.0.1:3000/users/sign_in", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ email, password }),
+  //   }).then((r) => {
+  //     setIsLoading(false);
+  //     if (r.ok) {
      
-        r.json().then((user) => setUser(user));
+  //       r.json().then((user) => setUser(user));
 
-        // navigate("/job_seeker_profile");
-        if (user.role === "job_seeker") {
-          navigate("/job_seeker_profile");
-        } else {
-          navigate("/employer_profile");
-        }
-      }
-      else {
-				r.json().then((err) => setErrors(err.errors));
-			}
-      console.log(user.role)
+  //       // navigate("/job_seeker_profile");
+  //       if (user.role === "job_seeker") {
+  //         navigate("/job_seeker_profile");
+  //       } else {
+  //         navigate("/employer_profile");
+  //       }
+  //     }
+  //     else {
+	// 			r.json().then((err) => setErrors(err.errors));
+	// 		}
+  //     console.log(user.role)
       
-    });
+  //   });
   }
 
   return (
@@ -67,9 +67,9 @@ function LoginForm({ setUser,user }) {
             {/* {errors.map((err) => (
               <span key={err}>{err}</span>
             ))} */}
-            {errors.map((err) => (
+            {/* {errors.map((err) => (
               <Error key={err}>{err}</Error>
-            ))}
+            ))} */}
           </div>
         </form>
 
