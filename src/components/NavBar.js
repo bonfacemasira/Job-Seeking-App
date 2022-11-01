@@ -9,7 +9,6 @@ function NavBar() {
   //add user as a prop
   const user = "1";
 
-  
   return (
     <div className="wrapper">
       <h1 className="logo">JS</h1>
@@ -26,6 +25,7 @@ function NavBar() {
           </>
         ) : (
           <>
+            {/* create clicks to show dropdowns  */}
             <div className="notifications">
               <FontAwesomeIcon icon={faBell} />
               <div className="total_notifications">9</div>
