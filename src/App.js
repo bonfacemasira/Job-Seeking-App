@@ -21,10 +21,7 @@ import Finalization from "./components/Finalization";
 import Home from "./components/Home";
 // import EditProfile from "./pages/EditProfile";
 
-
 import UploadJob from "./components/Employer/UploadJob";
-
-
 
 // import UploadJob from "./components/Employer/UploadJob";
 
@@ -33,7 +30,6 @@ import UploadJob from "./components/Employer/UploadJob";
 // import UploadJob from "./components/Employer/UploadJob";
 
 import VerificationForm from "./components/VerificationForm";
-
 
 function App() {
   const [user, setUser] = useState(null);
@@ -44,7 +40,6 @@ function App() {
   // useEffect(()=>{
   //   setUser("employer")
   // },[])
-
 
   useEffect(() => {
     // auto-login
@@ -87,7 +82,10 @@ function App() {
   return (
     <div className="App">
       <NavBar user={user} setUser={setUser} />
+
+      <Notifications />
       <Routes>
+        <Route path="/employer/job_upload" element={<UploadJob />} />
         <Route
           exact
           path="/job_seeker_profile"
@@ -98,7 +96,12 @@ function App() {
           exact
           path="/job_seeker_confirm"
           element={
-            jobSeekerData ? <VerificationForm data={jobSeekerData} setJobSeekerData={setJobSeekerData}/> : null
+            jobSeekerData ? (
+              <VerificationForm
+                data={jobSeekerData}
+                setJobSeekerData={setJobSeekerData}
+              />
+            ) : null
           }
         />
         <Route
@@ -109,23 +112,6 @@ function App() {
         <Route exact path="/register" element={<RegisterForm />} />
         <Route exact path="/" element={<Home />} />
       </Routes>
-
-
-    {/* <NavBar /> */}
-    {/* <Login /> */}
-    {/* <UploadJob /> */}
-    {/* <VerificationForm /> */}
-
-
-      <Notifications/>
-
-      {/* <EditProfile/> */}
-
-
-
-          {/* employers */}
-          {/* <Route path="/employer/job_upload" element={<UploadJob />} />*/}
-
     </div>
   );
 }
