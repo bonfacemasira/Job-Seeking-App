@@ -11,6 +11,7 @@ import IdentityForm from "./components/IdentityForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import AsideBar from "./components/asidebar/AsideBar";
 import Finalization from "./components/Finalization";
+import EmployerForm from "./components/EmployerForm";
 // import EditProfile from "./pages/EditProfile";
 
 // import UploadJob from "./components/Employer/UploadJob";
@@ -68,7 +69,7 @@ function App() {
 </Routes>
 
    
-    
+  <EmployerForm user={user}/>  
   
     {/* <UploadJob /> */}
     {/* <VerificationForm /> */}
