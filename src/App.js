@@ -26,9 +26,6 @@ import UploadJob from "./components/Employer/UploadJob";
 
 
 
-import Notifications from "./pages/Notifications";
-
-
 // import UploadJob from "./components/Employer/UploadJob";
 
 // import Job from "./components/jobs/job";
@@ -114,7 +111,6 @@ function App() {
       </Routes>
 
 
-  <div className="App">
     <NavBar />
     {/* <Login /> */}
     {/* <UploadJob /> */}
@@ -128,7 +124,7 @@ function App() {
 
 
           {/* employers */}
-          {/* <Route path="/employer/job_upload" element={<UploadJob />} />
+          {/* <Route path="/employer/job_upload" element={<UploadJob />} />*/}
 
     </div>
   );
