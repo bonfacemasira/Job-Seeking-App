@@ -7,7 +7,7 @@ function LoginForm({ setUser,user }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   
 	const navigate = useNavigate();
   
@@ -55,6 +55,14 @@ function LoginForm({ setUser,user }) {
           <button type="submit" className="formButton">  
             LogIn
           </button>
+          <div>
+            {/* {errors.map((err) => (
+              <span key={err}>{err}</span>
+            ))} */}
+            {/* {errors.map((err) => (
+              <Error key={err}>{err}</Error>
+            ))} */}
+          </div>
         </form>
 
         <h3>
