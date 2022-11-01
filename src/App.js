@@ -12,6 +12,7 @@ import { Navigate } from "react-router-dom";
 import AsideBar from "./components/asidebar/AsideBar";
 
 
+
 import Notifications from "./pages/Notifications";
 
 
@@ -19,13 +20,21 @@ import Notifications from "./pages/Notifications";
 
 // import Job from "./components/jobs/job";
 
+// import UploadJob from "./components/Employer/UploadJob";
+
+import VerificationForm from "./components/VerificationForm";
+
+
 function App() {
   const [user, setUser] = useState(null);
+  const [jobSeekerData, setJobSeekerData] = useState([]);
 
   // to delete set user to admin
-  useEffect(()=>{
-    setUser("admin")
-  },[])
+
+  // useEffect(()=>{
+  //   setUser("employer")
+  // },[])
+
 
   useEffect(() => {
     // auto-login
@@ -66,6 +75,30 @@ function App() {
   //   });
   // }, []);
   return (
+    <div className="App">
+      <NavBar user={user} setUser={setUser} />
+      <Routes>
+        <Route
+          exact
+          path="/job_seeker_profile"
+          element={<IdentityForm data={setJobSeekerData} />}
+        />
+        <Route exact path="/final" element={<Finalization />} />
+        <Route
+          exact
+          path="/job_seeker_confirm"
+          element={
+            jobSeekerData ? <VerificationForm data={jobSeekerData} setJobSeekerData={setJobSeekerData}/> : null
+          }
+        />
+        <Route
+          exact
+          path="/login"
+          element={<LoginForm user={user} setUser={setUser} />}
+        />
+        <Route exact path="/register" element={<RegisterForm />} />
+        <Route exact path="/" element={<Home />} />
+      </Routes>
 
 
   <div className="App">
@@ -80,7 +113,7 @@ function App() {
 
           {/* employers */}
           {/* <Route path="/employer/job_upload" element={<UploadJob />} />
-        </Routes> */}
+
     </div>
   );
 }
