@@ -104,3 +104,9 @@ img{
   font-size: 15px;
 }
 
+label{
+  color:white;
+  font-size: .8rem;
+  text-align: left;
+  margin-top: 1rem;
+}

@@ -14,6 +14,7 @@ function LoginForm({ setUser,user }) {
   function handleSubmit(e) {
     e.preventDefault();
 
+
     axios.post("/users/login",
     {email: email,
     password: password
@@ -27,6 +28,34 @@ function LoginForm({ setUser,user }) {
         navigate("/employer_profile");
       }
     });
+
+  //   setIsLoading(true);
+  //   fetch("http://127.0.0.1:3000/users/sign_in", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ email, password }),
+  //   }).then((r) => {
+  //     setIsLoading(false);
+  //     if (r.ok) {
+     
+  //       r.json().then((user) => setUser(user));
+
+  //       // navigate("/job_seeker_profile");
+  //       if (user.role === "job_seeker") {
+  //         navigate("/job_seeker_profile");
+  //       } else {
+  //         navigate("/employer_profile");
+  //       }
+  //     }
+  //     else {
+	// 			r.json().then((err) => setErrors(err.errors));
+	// 		}
+  //     console.log(user.role)
+      
+  //   });
+
   }
 
   return (

@@ -21,6 +21,7 @@ function RegisterForm({ onLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     // setErrors([]);
     // setIsLoading(true);
     axios
@@ -41,6 +42,48 @@ function RegisterForm({ onLogin }) {
           navigate("/employer_profile");
         }
       });
+
+    //setIsLoading(true);
+
+
+  //   fetch("http://127.0.0.1:3000/users", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       email,
+  //       password,
+  //       password_confirmation,
+  //       username,
+  //       role,
+  //     }),
+  //   }).then((r) => {
+  //     setIsLoading(false);
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //   });
+
+    //fetch("http://127.0.0.1:3000/users", {
+      //method: "POST",
+    //  headers: {
+      //  "Content-Type": "application/json",
+   //   },
+   //   body: JSON.stringify({
+    //    email,
+     //   password,
+      //  password_confirmation,
+  //      username,
+   //     role,
+   //   }),
+   // }).then((r) => {
+    //  setIsLoading(false);
+    //  if (r.ok) {
+     //   r.json().then((user) => onLogin(user));
+     // }
+   // });
+
   }
 
   return (
