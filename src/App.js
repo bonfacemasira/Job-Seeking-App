@@ -1,8 +1,8 @@
 import "./App.css";
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import { Route, Routes } from "react-router-dom";
-import RegisterForm from "./components/RegisterForm"
+import RegisterForm from "./components/RegisterForm";
 // import Login from "./pages/Login";
 import LoginForm from "./components/LoginForm";
 import IdentityForm from "./components/IdentityForm";
@@ -14,20 +14,18 @@ import Finalization from "./components/Finalization";
 import Home from "./components/Home";
 // import EditProfile from "./pages/EditProfile";
 
-import UploadJob from "./components/Employer/UploadJob";
+// import UploadJob from "./components/Employer/UploadJob";
 
-import Job from "./components/jobs/job";
+import VerificationForm from "./components/VerificationForm";
 
 function App() {
-  
- 
   const [user, setUser] = useState(null);
+  const [jobSeekerData, setJobSeekerData] = useState([]);
 
   // to delete set user to admin
   // useEffect(()=>{
   //   setUser("employer")
   // },[])
-
 
   useEffect(() => {
     // auto-login
@@ -59,7 +57,7 @@ function App() {
         <AsideBar />
       </ProSidebarProvider>
     );
-    
+
   // useEffect(() => {
   //   fetch("").then((r) => {
   //     if (r.ok) {
@@ -68,30 +66,38 @@ function App() {
   //   });
   // }, []);
   return (
+    <div className="App">
+      <NavBar user={user} setUser={setUser} />
+      <Routes>
+        <Route
+          exact
+          path="/job_seeker_profile"
+          element={<IdentityForm data={setJobSeekerData} />}
+        />
+        <Route exact path="/final" element={<Finalization />} />
+        <Route
+          exact
+          path="/job_seeker_confirm"
+          element={
+            jobSeekerData ? <VerificationForm data={jobSeekerData} setJobSeekerData={setJobSeekerData}/> : null
+          }
+        />
+        <Route
+          exact
+          path="/login"
+          element={<LoginForm user={user} setUser={setUser} />}
+        />
+        <Route exact path="/register" element={<RegisterForm />} />
+        <Route exact path="/" element={<Home />} />
+      </Routes>
 
-  <div className="App">
-    
-        <NavBar user={user} setUser={setUser}/>
-<Routes>
-  <Route exact path='/job_seeker_profile' element={<IdentityForm/>}/>
-  <Route exact path='/employer_profile' element={<Finalization/>}/>
-  <Route exact path='/job_seeker_profile' element={<IdentityForm/>}/>
-<Route exact path='/login' element={<LoginForm user={user} setUser={setUser}/>}/>
-<Route exact path='/register' element={<RegisterForm/>}/>
-<Route exact path='/' element={<Home/>}/>
-</Routes>
-
-   
-    
-  
-    {/* <UploadJob /> */}
-    {/* <VerificationForm /> */}
+      {/* <UploadJob /> */}
+      {/* <VerificationForm /> */}
       {/* <EditProfile/> */}
-
-          {/* employers */}
-          {/* <Route path="/employer/job_upload" element={<UploadJob />} />
+      {/* <IdentityForm data={setJobSeekerData} /> */}
+      {/* employers */}
+      {/* <Route path="/employer/job_upload" element={<UploadJob />} />
         </Routes> */}
-     
     </div>
   );
 }
