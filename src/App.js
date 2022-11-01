@@ -10,22 +10,31 @@ import IdentityForm from "./components/IdentityForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import { Navigate } from "react-router-dom";
 import AsideBar from "./components/asidebar/AsideBar";
-import Finalization from "./components/Finalization";
-import Home from "./components/Home";
-// import EditProfile from "./pages/EditProfile";
+
+
+
+import Notifications from "./pages/Notifications";
+
+
+// import UploadJob from "./components/Employer/UploadJob";
+
+// import Job from "./components/jobs/job";
 
 // import UploadJob from "./components/Employer/UploadJob";
 
 import VerificationForm from "./components/VerificationForm";
+
 
 function App() {
   const [user, setUser] = useState(null);
   const [jobSeekerData, setJobSeekerData] = useState([]);
 
   // to delete set user to admin
+
   // useEffect(()=>{
   //   setUser("employer")
   // },[])
+
 
   useEffect(() => {
     // auto-login
@@ -36,17 +45,17 @@ function App() {
     });
   }, []);
   //navigate user
-  function navigateUser() {
-    if (!user) {
-      return <Navigate replace to="/login" />;
-    } else if (user && user.role === "admin") {
-      return <Navigate replace to="/admin" />;
-    } else if (user && user.role === "employer") {
-      return <Navigate replace to="/employer" />;
-    } else if (user && user.role === "job_seeker") {
-      return <Navigate replace to="/job_seeker" />;
-    }
-  }
+  // function navigateUser() {
+  //   if (!user) {
+  //     return <Navigate replace to="/login" />;
+  //   } else if (user && user.role === "admin") {
+  //     return <Navigate replace to="/admin" />;
+  //   } else if (user && user.role === "employer") {
+  //     return <Navigate replace to="/employer" />;
+  //   } else if (user && user.role === "job_seeker") {
+  //     return <Navigate replace to="/job_seeker" />;
+  //   }
+  // }
 
   // a trial to check if user exists
   // i am using it to view the dashboard page
@@ -91,13 +100,20 @@ function App() {
         <Route exact path="/" element={<Home />} />
       </Routes>
 
-      {/* <UploadJob /> */}
-      {/* <VerificationForm /> */}
-      {/* <EditProfile/> */}
-      {/* <IdentityForm data={setJobSeekerData} /> */}
-      {/* employers */}
-      {/* <Route path="/employer/job_upload" element={<UploadJob />} />
-        </Routes> */}
+
+  <div className="App">
+    <NavBar />
+    {/* <Login /> */}
+    {/* <UploadJob /> */}
+    {/* <VerificationForm /> */}
+      <Notifications/>
+
+      {/* <IdentityForm /> */}
+
+
+          {/* employers */}
+          {/* <Route path="/employer/job_upload" element={<UploadJob />} />
+
     </div>
   );
 }
