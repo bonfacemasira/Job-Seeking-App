@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import Error from "./Error";
 
-function RegisterForm({ setUser }) {
+function RegisterForm({ onLogin }) {
+  const navigate = useNavigate();
   const options = [
     { name: 1, value: "job_seeker" },
     { name: 2, value: "employer" },
@@ -12,30 +14,31 @@ function RegisterForm({ setUser }) {
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
   const [role, setRole] = useState(options[0].value);
-  // const [errors, setErrors] = useState("");
-  // const [isLoading, setIsLoading] = useState("");
+  const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    // setErrors([]);
-    // setIsLoading(true);
-    fetch("http://127.0.0.1:3000/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-        password_confirmation,
-        username,
-        role,
-      }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => console.log(user));
-      }
-    });
+    setIsLoading(true);
+
+  //   fetch("http://127.0.0.1:3000/users", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       email,
+  //       password,
+  //       password_confirmation,
+  //       username,
+  //       role,
+  //     }),
+  //   }).then((r) => {
+  //     setIsLoading(false);
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //   });
   }
 
   return (
@@ -84,8 +87,16 @@ function RegisterForm({ setUser }) {
             ))}
           </select>
           <button type="submit" className="formButton" onClick={handleSubmit}>
-            Sign Up
+            {isLoading ? "Loading..." : "Register"}
           </button>
+          {/* {errors.map((err) => (
+            <Error key={err}>{err}</Error>
+          ))} */}
+
+          {Object.keys(errors).map((key) => (
+            // console.log("errors", errors)
+            <Error key={key}>{key + " " + errors[key][0]}</Error>
+          ))}
         </form>
         <h3>
           <span className="passwordField">
