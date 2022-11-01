@@ -28,7 +28,9 @@ function Card() {
     <div className="container">
       <div className='card-container'>
       <div className='card-style'>
-        <img className='image' src="https://logodix.com/logo/1433.png"/>
+        <div className='image'>
+        <img src="https://logodix.com/logo/1433.png" alt='logo'/>
+       </div>
        </div> 
         <div className='card-information'>
           <h2 className='info'>Microsoft</h2>
@@ -44,7 +46,9 @@ function Card() {
 
         <div className='card-container'>
           <div className='card-style'>
+          <div className='image'>
         <img className='image' src="https://logodix.com/logo/317142.png"/>
+        </div>
         </div>
         <div className='card-information'>
           <h2 className='info'>Apple</h2>
@@ -59,7 +63,9 @@ function Card() {
         </div>
         <div className='card-container'>
         <div className='card-style'>
+        <div className='image'>
         <img className='image' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvTh-soG49NeQyJP4j53Fm9w-mODXs6plBmmr_aQhhVFQ4dtfZMIgI0u4FU7Cp9vSsSfI&usqp=CAU"/>
+       </div>
         </div>
         <div className='card-information'>
           <h2 className='info'>Safaricom</h2>
