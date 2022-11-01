@@ -11,6 +11,19 @@ import { ProSidebarProvider } from "react-pro-sidebar";
 import { Navigate } from "react-router-dom";
 import AsideBar from "./components/asidebar/AsideBar";
 
+import Notifications from "./pages/Notifications";
+
+// import UploadJob from "./components/Employer/UploadJob";
+
+// import Job from "./components/jobs/job";
+
+import Finalization from "./components/Finalization";
+import Home from "./components/Home";
+// import EditProfile from "./pages/EditProfile";
+
+
+import UploadJob from "./components/Employer/UploadJob";
+
 
 
 import Notifications from "./pages/Notifications";
@@ -106,9 +119,12 @@ function App() {
     {/* <Login /> */}
     {/* <UploadJob /> */}
     {/* <VerificationForm /> */}
+
+
       <Notifications/>
 
-      {/* <IdentityForm /> */}
+      {/* <EditProfile/> */}
+
 
 
           {/* employers */}
