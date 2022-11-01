@@ -8,7 +8,7 @@ import LoginForm from "./components/LoginForm";
 import IdentityForm from "./components/IdentityForm";
 // import VerificationForm from "./components/VerificationForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
-// import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import AsideBar from "./components/asidebar/AsideBar";
 
 
@@ -77,6 +77,10 @@ function App() {
 
       {/* <IdentityForm /> */}
 
+
+          {/* employers */}
+          {/* <Route path="/employer/job_upload" element={<UploadJob />} />
+        </Routes> */}
     </div>
   );
 }
