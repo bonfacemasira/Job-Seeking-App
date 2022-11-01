@@ -10,9 +10,10 @@ import IdentityForm from "./components/IdentityForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 // import { useNavigate } from "react-router-dom";
 import AsideBar from "./components/asidebar/AsideBar";
-import Finalization from "./components/Finalization";
-import Home from "./components/Home";
-// import EditProfile from "./pages/EditProfile";
+
+
+import Notifications from "./pages/Notifications";
+
 
 // import UploadJob from "./components/Employer/UploadJob";
 
@@ -65,28 +66,17 @@ function App() {
   //   });
   // }, []);
   return (
-    <div className="App">
-      <NavBar user={user} setUser={setUser} />
-      <Routes>
-        <Route exact path="/job_seeker_profile" element={<IdentityForm />} />
-        <Route exact path="/employer_profile" element={<Finalization />} />
-        <Route exact path="/job_seeker_profile" element={<IdentityForm />} />
-        <Route
-          exact
-          path="/login"
-          element={<LoginForm user={user} setUser={setUser} />}
-        />
-        <Route exact path="/register" element={<RegisterForm />} />
-        <Route exact path="/" element={<Home />} />
-      </Routes>
 
-      {/* <UploadJob /> */}
-      {/* <VerificationForm /> */}
-      {/* <EditProfile/> */}
 
-      {/* employers */}
-      {/* <Route path="/employer/job_upload" element={<UploadJob />} />
-        </Routes> */}
+  <div className="App">
+    <NavBar />
+    {/* <Login /> */}
+    {/* <UploadJob /> */}
+    {/* <VerificationForm /> */}
+      <Notifications/>
+
+      {/* <IdentityForm /> */}
+
     </div>
   );
 }
