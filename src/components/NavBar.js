@@ -1,35 +1,61 @@
 import "../App.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import axios from "../api/Access";
 
-function NavBar({ user, setUser }) {
-  //add user as a prop
+
+
+
+function NavBar() {
+  const [loggedIn, setLoggedIn] = useState(null);
+
+  useEffect(() => {
+    const authenticated = JSON.parse(
+      localStorage.getItem("authenticated") || false
+    );
+    setLoggedIn(authenticated);
+  }, []);
 
   const navigate = useNavigate();
 
   function handleLogoutClick() {
-    fetch("http://127.0.0.1:3000/users/sign_out", { method: "DELETE" }).then(
-      (r) => {
-        if (r.ok) {
-          setUser(null);
-        }
+      localStorage.setItem("user", JSON.stringify({}));
+      localStorage.setItem("token", JSON.stringify(""));
+      localStorage.setItem("authenticated", JSON.stringify(false));
+      navigate("/");
 
-        if (r.ok) {
-          navigate("/");
-        }
-      }
-    );
+
+
+//function NavBar({ user, setUser }) {
+  //add user as a prop
+
+  //const navigate = useNavigate();
+
+ // function handleLogoutClick() {
+    //fetch("http://127.0.0.1:3000/users/sign_out", { method: "DELETE" }).then(
+      //(r) => {
+        //if (r.ok) {
+       //   setUser(null);
+       // }
+
+  //      if (r.ok) {
+   //       navigate("/");
+   //     }
+   //   }
+
   }
 
   return (
     <div className="wrapper">
       <h1 className="logo">JS</h1>
+     
+
 
       <nav className="Nav">
-        {!user ? (
+        {!loggedIn ? (
           <>
             <Link to="/login" className="navButton">
               Login
@@ -51,8 +77,11 @@ function NavBar({ user, setUser }) {
               </div>
               <FontAwesomeIcon icon={faChevronDown} />
             </div>
-            <button onClick={handleLogoutClick}>Logout</button>
+             <button className="formButton" onClick={handleLogoutClick}>
+            Logout
+          </button>
           </>
+
         )}
       </nav>
     </div>

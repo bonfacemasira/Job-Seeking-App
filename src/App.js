@@ -19,11 +19,11 @@ import Notifications from "./pages/Notifications";
 
 import Finalization from "./components/Finalization";
 import Home from "./components/Home";
+import axios from "./api/Access";
 // import EditProfile from "./pages/EditProfile";
 
-import UploadJob from "./components/Employer/UploadJob";
 
-// import UploadJob from "./components/Employer/UploadJob";
+import UploadJob from "./components/Employer/UploadJob";
 
 // import Job from "./components/jobs/job";
 
@@ -31,9 +31,11 @@ import UploadJob from "./components/Employer/UploadJob";
 
 import VerificationForm from "./components/VerificationForm";
 
+
 function App() {
   const [user, setUser] = useState(null);
   const [jobSeekerData, setJobSeekerData] = useState([]);
+
 
   // to delete set user to admin
 
@@ -41,14 +43,14 @@ function App() {
   //   setUser("employer")
   // },[])
 
+
   useEffect(() => {
     // auto-login
-    fetch("http://127.0.0.1:3000/users/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
+    axios.get("/users/me").then((r) => {
+      setUser(r.data);
     });
   }, []);
+
   //navigate user
   // function navigateUser() {
   //   if (!user) {
@@ -72,6 +74,7 @@ function App() {
       </ProSidebarProvider>
     );
 
+
   // useEffect(() => {
   //   fetch("").then((r) => {
   //     if (r.ok) {
@@ -83,6 +86,9 @@ function App() {
     <div className="App">
       <NavBar user={user} setUser={setUser} />
       <Routes>
+        <Routes>
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/register" element={<RegisterForm />} />
         <Route path="/employer/job_upload" element={<UploadJob />} />
         <Route
           exact
@@ -107,7 +113,6 @@ function App() {
           path="/login"
           element={<LoginForm user={user} setUser={setUser} />}
         />
-        <Route exact path="/register" element={<RegisterForm />} />
         <Route exact path="/" element={<Home />} />
       </Routes>
     </div>
