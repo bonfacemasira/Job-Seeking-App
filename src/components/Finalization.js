@@ -13,5 +13,5 @@ function Finalization() {
   )
 }
 
-export default Finalization
+export default Finalization;
 
