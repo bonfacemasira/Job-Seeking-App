@@ -13,6 +13,7 @@ import AsideBar from "./components/asidebar/AsideBar";
 import Finalization from "./components/Finalization";
 import Home from "./components/Home";
 import axios from "./api/Access";
+import PaymentForm from "./components/PaymentForm";
 // import EditProfile from "./pages/EditProfile";
 // import UploadJob from "./components/Employer/UploadJob";
 // import Job from "./components/jobs/job";
@@ -28,17 +29,17 @@ function App() {
   }, []);
 
   //navigate user
-  function navigateUser() {
-    if (!user) {
-      return <Navigate replace to="/login" />;
-    } else if (user && user.role === "admin") {
-      return <Navigate replace to="/admin" />;
-    } else if (user && user.role === "employer") {
-      return <Navigate replace to="/employer" />;
-    } else if (user && user.role === "job_seeker") {
-      return <Navigate replace to="/job_seeker" />;
-    }
-  }
+  // function navigateUser() {
+  //   if (!user) {
+  //     return <Navigate replace to="/login" />;
+  //   } else if (user && user.role === "admin") {
+  //     return <Navigate replace to="/admin" />;
+  //   } else if (user && user.role === "employer") {
+  //     return <Navigate replace to="/employer" />;
+  //   } else if (user && user.role === "job_seeker") {
+  //     return <Navigate replace to="/job_seeker" />;
+  //   }
+  // }
 
   // a trial to check if user exists
   // i am using it to view the dashboard page
@@ -57,8 +58,9 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route exact path="/job_seeker_profile" element={<IdentityForm />} />
-        <Route exact path="/employer_profile" element={<Finalization />} />
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/employer_profile" element={<PaymentForm />} />
+        <Route exact path="/finalization" element={<Finalization />} />
+        <Route exact path="/" element={<LoginForm />} />
       </Routes>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 function IdentityForm({ onLogin }) {
   const countryRef = useRef();
@@ -15,6 +16,9 @@ function IdentityForm({ onLogin }) {
   const [availability, setAvailability] = useState("");
   const [salary_expectation, setSalary] = useState("");
   const [isLoading, setIsLoading] = useState("");
+
+  const navigate = useNavigate();
+
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
@@ -35,17 +39,13 @@ function IdentityForm({ onLogin }) {
     // post data to backend
     fetch("http://127.0.0.1:3000/job_seekers", {
       method: "POST",
-      // headers: {
-
-      //   "Content-Type": "multipart/form-data"
-      // },
       body: formData,
-      // body: JSON.stringify({ country, birthDate, passport, idImage,full_name, salary_expectation, cv, skills, availability, cerificate, experience, job_type }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
         console.log(cerificate);
+        navigate("/finalization");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
