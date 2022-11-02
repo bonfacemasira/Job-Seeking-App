@@ -1,7 +1,9 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-function IdentityForm({ onLogin }) {
+function IdentityForm({ data }) {
+  const navigate = useNavigate();
+
   const countryRef = useRef();
   const birthDateRef = useRef();
   const full_nameRef = useRef();
@@ -16,8 +18,6 @@ function IdentityForm({ onLogin }) {
   const [availability, setAvailability] = useState("");
   const [salary_expectation, setSalary] = useState("");
   const [isLoading, setIsLoading] = useState("");
-
-  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -43,8 +43,7 @@ function IdentityForm({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
-        console.log(cerificate);
+        r.json().then((user) => data(user));
         navigate("/finalization");
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -154,7 +153,7 @@ function IdentityForm({ onLogin }) {
           />
 
           <button type="submit" className="formButton">
-            Submit
+            {isLoading ? "loading..." : "Submit"}
           </button>
         </form>
       </div>

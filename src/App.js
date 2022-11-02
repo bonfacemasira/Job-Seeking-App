@@ -10,6 +10,9 @@ import IdentityForm from "./components/IdentityForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import { Navigate } from "react-router-dom";
 import AsideBar from "./components/asidebar/AsideBar";
+import Notifications from "./pages/Notifications";
+// import UploadJob from "./components/Employer/UploadJob";
+// import Job from "./components/jobs/job";
 import Finalization from "./components/Finalization";
 // import Home from "./components/Home";
 import axios from "./api/Access";
@@ -24,6 +27,8 @@ import JobSeekers from "./pages/JobSeekers";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [jobSeekerData, setJobSeekerData] = useState([]);
+
 
   useEffect(() => {
     // auto-login
@@ -34,7 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar/>
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />

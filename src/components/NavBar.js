@@ -1,7 +1,13 @@
 import "../App.css";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import axios from "../api/Access";
+
+
+
 
 function NavBar() {
   const [loggedIn, setLoggedIn] = useState(null);
@@ -25,25 +31,36 @@ function NavBar() {
   return (
     <div className="wrapper">
       <h1 className="logo">JS</h1>
-      <div>
-        {loggedIn ? (
-          <button className="formButton" onClick={handleLogoutClick}>
-            Logout
-          </button>
-        ) : (
-          <nav className="Nav">
-            <Link to="/">Home</Link>
-            <Link to="/Find talent">Find Talent</Link>
-            <Link to="/job_seeker_profile">Employers</Link>
+      <nav className="Nav">
+        {!loggedIn ? (
+          <>
             <Link to="/login" className="navButton">
               Login
             </Link>
             <Link to="/register" className="navButton">
               Sign Up
             </Link>
-          </nav>
+          </>
+        ) : (
+          <>
+            {/* create clicks to show dropdowns  */}
+            <div className="notifications">
+              <FontAwesomeIcon icon={faBell} />
+              <div className="total_notifications">9</div>
+            </div>
+            <div className="user_prof">
+              <div className="user_image">
+                <img src="#" alt="prof" />
+              </div>
+              <FontAwesomeIcon icon={faChevronDown} />
+            </div>
+             <button className="formButton" onClick={handleLogoutClick}>
+            Logout
+          </button>
+          </>
+
         )}
-      </div>
+      </nav>
     </div>
   );
 }

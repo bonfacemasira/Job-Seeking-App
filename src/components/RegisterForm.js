@@ -21,6 +21,7 @@ function RegisterForm({ onLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     // setErrors([]);
     // setIsLoading(true);
     axios
@@ -35,12 +36,54 @@ function RegisterForm({ onLogin }) {
         localStorage.setItem("user", JSON.stringify(r.data.user));
         localStorage.setItem("token", JSON.stringify(r.data.token));
         localStorage.setItem("authenticated", JSON.stringify(true));
-        if (r.data.role === "job_seeker") {
+        if (r.data.user.role === "job_seeker") {
           navigate("/job_seeker_profile");
         } else {
           navigate("/employer_profile");
         }
       });
+
+    //setIsLoading(true);
+
+
+  //   fetch("http://127.0.0.1:3000/users", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       email,
+  //       password,
+  //       password_confirmation,
+  //       username,
+  //       role,
+  //     }),
+  //   }).then((r) => {
+  //     setIsLoading(false);
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //   });
+
+    //fetch("http://127.0.0.1:3000/users", {
+      //method: "POST",
+    //  headers: {
+      //  "Content-Type": "application/json",
+   //   },
+   //   body: JSON.stringify({
+    //    email,
+     //   password,
+      //  password_confirmation,
+  //      username,
+   //     role,
+   //   }),
+   // }).then((r) => {
+    //  setIsLoading(false);
+    //  if (r.ok) {
+     //   r.json().then((user) => onLogin(user));
+     // }
+   // });
+
   }
 
   return (
