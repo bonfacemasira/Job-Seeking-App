@@ -1,33 +1,48 @@
 import React, { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "../api/Access";
 
-
-function LoginForm({ setUser,user }) {
+function LoginForm({ setUser, user }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  
-	const navigate = useNavigate();
-  
+
+  const navigate = useNavigate();
+
   function handleSubmit(e) {
     e.preventDefault();
 
+// <<<<<<< HEAD
+    axios
+      .post("/users/login", { email: email, password: password })
+      .then((r) => {
+        localStorage.setItem("user", JSON.stringify(r.data.user));
+        localStorage.setItem("token", JSON.stringify(r.data.token));
+        localStorage.setItem("authenticated", JSON.stringify(true));
+        if (r.data.user.role === "job_seeker") {
+          navigate("/job_seeker_profile");
+        } else if (r.data.user.role === "employer") {
+          navigate("/payment_form");
+        } else {
+          navigate('/admin_dashboard')
+        }
+      });
+// =======
 
-    axios.post("/users/login",
-    {email: email,
-    password: password
-  }).then((r) => {
-    localStorage.setItem("user", JSON.stringify(r.data.user));
-    localStorage.setItem("token", JSON.stringify(r.data.token));
-    localStorage.setItem("authenticated", JSON.stringify(true));
-      if (r.data.user.role === "job_seeker") {
-        navigate("/job_seeker_profile");
-      } else {
-        navigate("/employer_profile");
-      }
-    });
+  //   axios.post("/users/login",
+  //   {email: email,
+  //   password: password
+  // }).then((r) => {
+  //   localStorage.setItem("user", JSON.stringify(r.data.user));
+  //   localStorage.setItem("token", JSON.stringify(r.data.token));
+  //   localStorage.setItem("authenticated", JSON.stringify(true));
+  //     if (r.data.user.role === "job_seeker") {
+  //       navigate("/job_seeker_profile");
+  //     } else {
+  //       navigate("/employer_profile");
+  //     }
+  //   });
 
   //   setIsLoading(true);
   //   fetch("http://127.0.0.1:3000/users/sign_in", {
@@ -56,6 +71,7 @@ function LoginForm({ setUser,user }) {
       
   //   });
 
+// >>>>>>> 23830301553cd97e6e038d2b6fce55dd3feca169
   }
 
   return (
@@ -80,8 +96,8 @@ function LoginForm({ setUser,user }) {
             id="password"
             name="password"
           />
-      
-          <button type="submit" className="formButton">  
+
+          <button type="submit" className="formButton">
             LogIn
           </button>
           <div>

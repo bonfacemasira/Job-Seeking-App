@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 // import LoginForm from "../LoginForm";
 import NavBar from "../NavBar";
 import { Routes, Route } from "react-router-dom";
-
 import Dashboard from "../../pages/Dashboard";
 import Employers from "../../pages/Employers";
 import JobSeekers from "../../pages/JobSeekers";
@@ -17,7 +16,7 @@ function AsideBar() {
     <div style={{ display: "flex", height: "100%", minHeight: "400px" }}>
       <Sidebar customBreakPoint="700px" transitionDuration={1000}>
         <Menu>
-          <MenuItem routerLink={<Link to="/" />}> Dashboard</MenuItem>
+          <MenuItem routerLink={<Link to="/dashboard" />}> Dashboard</MenuItem>
           <MenuItem routerLink={<Link to="/employers" />}> Employers</MenuItem>
           <MenuItem routerLink={<Link to="/job_seekers" />}>
             {" "}
@@ -26,7 +25,7 @@ function AsideBar() {
         </Menu>
       </Sidebar>
       <main style={{ padding: "10", width: "100%" }}>
-        <NavBar />
+        {/* <NavBar /> */}
         <div>
           {broken ? (
             <button className="sb-button" onClick={() => toggleSidebar()}>
@@ -37,11 +36,11 @@ function AsideBar() {
           )}
         </div>
         {/* admin */}
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
+        {/* <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/employers" element={<Employers />} />
           <Route path="/job_seekers" element={<JobSeekers />} />
-        </Routes>
+        </Routes> */}
       </main>
     </div>
   );

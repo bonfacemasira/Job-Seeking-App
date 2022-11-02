@@ -26,34 +26,11 @@ function NavBar() {
       localStorage.setItem("token", JSON.stringify(""));
       localStorage.setItem("authenticated", JSON.stringify(false));
       navigate("/");
-
-
-
-//function NavBar({ user, setUser }) {
-  //add user as a prop
-
-  //const navigate = useNavigate();
-
- // function handleLogoutClick() {
-    //fetch("http://127.0.0.1:3000/users/sign_out", { method: "DELETE" }).then(
-      //(r) => {
-        //if (r.ok) {
-       //   setUser(null);
-       // }
-
-  //      if (r.ok) {
-   //       navigate("/");
-   //     }
-   //   }
-
   }
 
   return (
     <div className="wrapper">
       <h1 className="logo">JS</h1>
-     
-
-
       <nav className="Nav">
         {!loggedIn ? (
           <>

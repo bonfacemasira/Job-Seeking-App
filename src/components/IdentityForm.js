@@ -18,6 +18,7 @@ function IdentityForm({ data }) {
   const [availability, setAvailability] = useState("");
   const [salary_expectation, setSalary] = useState("");
   const [isLoading, setIsLoading] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
@@ -38,17 +39,12 @@ function IdentityForm({ data }) {
     // post data to backend
     fetch("http://127.0.0.1:3000/job_seekers", {
       method: "POST",
-      // headers: {
-
-      //   "Content-Type": "multipart/form-data"
-      // },
       body: formData,
-      // body: JSON.stringify({ country, birthDate, passport, idImage,full_name, salary_expectation, cv, skills, availability, cerificate, experience, job_type }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => data(user));
-        navigate("/job_seeker_confirm");
+        navigate("/finalization");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
