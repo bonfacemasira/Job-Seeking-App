@@ -17,6 +17,7 @@ import Home from "./components/Home";
 import UploadJob from "./components/Employer/UploadJob";
 
 import Job from "./components/jobs/job";
+import PaymentForm from "./components/PaymentForm";
 
 function App() {
   
@@ -83,7 +84,7 @@ function App() {
 
    
   {/* <EmployerForm user={user}/>   */}
-  {/* <PaymentForm user={user}/> */}
+  <PaymentForm user={user}/>
     {/* <UploadJob /> */}
     {/* <VerificationForm /> */}
       {/* <EditProfile/> */}

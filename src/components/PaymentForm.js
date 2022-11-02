@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function PaymentForm({ onLogin}) {
 
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [amount, setAmount] = useState("");
+
   const [errors, setErrors] = useState("");
   const [isLoading, setIsLoading] = useState("");
 
@@ -12,12 +12,12 @@ function PaymentForm({ onLogin}) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch(" https://096a-154-123-105-115.eu.ngrok.io/stkpush", {
+    fetch("https://76b0-197-156-137-135.eu.ngrok.io/stkpush", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ phoneNumber, amount }),
+      body: JSON.stringify({ phoneNumber }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
@@ -45,14 +45,7 @@ function PaymentForm({ onLogin}) {
             name="phoneNumber"
           />
           
-          <input
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            type="number"
-            placeholder="Ksh 000"
-            id="payment"
-            name="payment"
-          />
+         
           <button type="submit" className="formButton">
             Pay
           </button>
