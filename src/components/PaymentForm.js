@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function PaymentForm({ onLogin}) {
 
   const [phoneNumber, setPhoneNumber] = useState("");
-
+   const[data, setData] = useState("")
   const [errors, setErrors] = useState("");
   const [isLoading, setIsLoading] = useState("");
 
@@ -17,7 +17,7 @@ function PaymentForm({ onLogin}) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ phoneNumber }),
+      body: JSON.stringify({ data }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
@@ -26,6 +26,23 @@ function PaymentForm({ onLogin}) {
         r.json().then((err) => setErrors(err.errors));
       }
     });
+  }
+  function interval(){
+    useEffect(()=>{
+      const interval = setInterval(()=>{
+        fetch("https://76b0-197-156-137-135.eu.ngrok.io/polling_payment",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ data }),  
+        }).then(r => r.json())
+        .then(data => setData(data))
+          
+
+ 
+      }, 2000);
+    }, []);
   }
 
   return (
