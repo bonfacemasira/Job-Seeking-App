@@ -11,7 +11,7 @@ import { ProSidebarProvider } from "react-pro-sidebar";
 import { Navigate } from "react-router-dom";
 import AsideBar from "./components/asidebar/AsideBar";
 import Finalization from "./components/Finalization";
-import Home from "./components/Home";
+// import Home from "./components/Home";
 import axios from "./api/Access";
 import PaymentForm from "./components/PaymentForm";
 // import EditProfile from "./pages/EditProfile";
@@ -58,7 +58,8 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route exact path="/job_seeker_profile" element={<IdentityForm />} />
-        <Route exact path="/employer_profile" element={<PaymentForm />} />
+        <Route exact path="/payment_form" element={<PaymentForm />} />
+        <Route exact path="/employer_profile" element={<EmployerForm />} />
         <Route exact path="/finalization" element={<Finalization />} />
         <Route exact path="/" element={<LoginForm />} />
       </Routes>
