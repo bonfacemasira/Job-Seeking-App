@@ -22,9 +22,9 @@ function LoginForm({ setUser, user }) {
         if (r.data.user.role === "job_seeker") {
           navigate("/job_seeker_profile");
         } else if (r.data.user.role === "employer") {
-          navigate("/employer_profile");
+          navigate("/payment_form");
         } else {
-          navigate('/admin')
+          navigate('/admin_dashboard')
         }
       });
   }

@@ -12,7 +12,7 @@ function PaymentForm({ onLogin}) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("https://76b0-197-156-137-135.eu.ngrok.io/stkpush", {
+    fetch("https://95ec-41-212-84-46.eu.ngrok.io/stkpush", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

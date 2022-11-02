@@ -14,6 +14,10 @@ import Finalization from "./components/Finalization";
 // import Home from "./components/Home";
 import axios from "./api/Access";
 import PaymentForm from "./components/PaymentForm";
+import EmployerForm from "./components/EmployerForm";
+import Dashboard from "./pages/Dashboard";
+import Employers from "./pages/Employers";
+import JobSeekers from "./pages/JobSeekers";
 // import EditProfile from "./pages/EditProfile";
 // import UploadJob from "./components/Employer/UploadJob";
 // import Job from "./components/jobs/job";
@@ -28,29 +32,6 @@ function App() {
     });
   }, []);
 
-  //navigate user
-  // function navigateUser() {
-  //   if (!user) {
-  //     return <Navigate replace to="/login" />;
-  //   } else if (user && user.role === "admin") {
-  //     return <Navigate replace to="/admin" />;
-  //   } else if (user && user.role === "employer") {
-  //     return <Navigate replace to="/employer" />;
-  //   } else if (user && user.role === "job_seeker") {
-  //     return <Navigate replace to="/job_seeker" />;
-  //   }
-  // }
-
-  // a trial to check if user exists
-  // i am using it to view the dashboard page
-
-  if (user === "admin")
-    return (
-      <ProSidebarProvider>
-        <AsideBar />
-      </ProSidebarProvider>
-    );
-
   return (
     <div className="App">
       <NavBar />
@@ -61,7 +42,19 @@ function App() {
         <Route exact path="/payment_form" element={<PaymentForm />} />
         <Route exact path="/employer_profile" element={<EmployerForm />} />
         <Route exact path="/finalization" element={<Finalization />} />
+        <Route
+          exact
+          path="/admin_dashboard"
+          element={
+            <ProSidebarProvider>
+              <AsideBar />
+            </ProSidebarProvider>
+          }
+        />
         <Route exact path="/" element={<LoginForm />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/employers" element={<Employers />} />
+        <Route path="/job_seekers" element={<JobSeekers />} />
       </Routes>
     </div>
   );
