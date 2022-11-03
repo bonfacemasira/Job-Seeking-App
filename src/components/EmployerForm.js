@@ -63,6 +63,7 @@ function EmployerForm({user, onLogin}){
             name="skills"
           />
           <label for="inputTag" className="label">
+            Upload Image
            <input
             onChange={(e) => setImage(e.target.files[0])}
             type="file"
