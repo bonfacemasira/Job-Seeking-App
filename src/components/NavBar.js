@@ -30,7 +30,7 @@ function NavBar() {
 
   return (
     <div className="wrapper">
-      <h1 className="logo">JS</h1>
+      <h1 className="logo">Job Seeking App</h1>
       <nav className="Nav">
         {!loggedIn ? (
           <>

@@ -81,6 +81,7 @@ function IdentityForm({ data }) {
            <label for="inputTag" className="label">
              Upload your passport
           <input
+        
             type="file"
             onChange={(e) => setPassport(e.target.files[0])}
             // accept="application/pdf,application/vnd.ms-excel"
