@@ -78,22 +78,28 @@ function IdentityForm({ data }) {
             id="birthDate"
             name="birthDate"
           />
+           <label for="inputTag" className="label">
+             Upload your passport
           <input
             type="file"
             onChange={(e) => setPassport(e.target.files[0])}
-            accept="application/pdf,application/vnd.ms-excel"
+            // accept="application/pdf,application/vnd.ms-excel"
             placeholder="🔓Upload your passport image"
-            id="passport"
-            name="passport"
+            id="inputTag"
+            className="idmage"
           />
+          </label>
+          <label for="inputTag" className="label">
+            Upload your Image
           <input
             onChange={(e) => setIdImage(e.target.files[0])}
             type="file"
             accept="application/pdf,application/vnd.ms-excel"
             placeholder="🔓Upload ID image"
-            id="idImage"
-            name="IdImage"
+            id="inputTag"
+            className="idmage"
           />
+          </label>
           <input
             value={job_type}
             onChange={(e) => setJob(e.target.value)}
@@ -135,22 +141,28 @@ function IdentityForm({ data }) {
             id="availability"
             name="availability"
           />
+           <label for="inputTag" className="label">
+             Upload your CV
           <input
             onChange={(e) => setCv(e.target.files[0])}
             type="file"
             accept="application/pdf,application/vnd.ms-excel"
             placeholder="🔓Upload your CV"
-            id="passport"
-            name="passport"
+            id="inputTag"
+            className="idmage"
           />
+          </label>
+          <label for="inputTag" className="label">
+            Upload your certificates
           <input
             onChange={(e) => setCertificate(e.target.files[0])}
             type="file"
             accept="application/pdf,application/vnd.ms-excel"
             placeholder="🔓Upload your certificate"
-            id="passport"
-            name="passport"
+            id="inputTag"
+            className="idmage"
           />
+          </label>
 
           <button type="submit" className="formButton">
             {isLoading ? "loading..." : "Submit"}

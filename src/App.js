@@ -27,7 +27,6 @@ import Dashboard from "./pages/Dashboard";
 import Employers from "./pages/Employers";
 import JobSeekers from "./pages/JobSeekers";
 
-
 function App() {
   const [user, setUser] = useState(null);
   const [jobSeekerData, setJobSeekerData] = useState([]);

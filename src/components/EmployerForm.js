@@ -62,14 +62,17 @@ function EmployerForm({user, onLogin}){
             id="skills"
             name="skills"
           />
+          <label for="inputTag" className="label">
+            Upload Image
            <input
             onChange={(e) => setImage(e.target.files[0])}
             type="file"
             // accept="application/pdf,application/vnd.ms-excel"
             placeholder="🔓Upload ID image"
-            id="idImage"
-            name="IdImage"
+            id="inputTag"
+            className="idmage"
           />
+          </label>
           <button type="submit" className="formButton">
             Submit
           </button>
