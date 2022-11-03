@@ -62,7 +62,7 @@ function Jobseekers() {
                           handleToggle(item.id);
                         }}
                         type="submit"
-                        className="card-button"
+                        className="cardButton"
                       >
                         {toggle ? "hide view" : "view"}
                       </button>

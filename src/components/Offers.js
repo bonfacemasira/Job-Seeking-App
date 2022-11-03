@@ -26,7 +26,7 @@ function Offers() {
             <h2 className="info">{offer.employer.organization}</h2>
             <h3 className="info">{offer.job_title}</h3>
             <div className="card-style">
-              <button type="submit" className="card-button">
+              <button type="submit" className="cardButton1">
                 View Offer
               </button>
             </div>
