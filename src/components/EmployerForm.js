@@ -1,51 +1,52 @@
-import React, { useEffect, useState } from 'react';
+import axios from "../api/Access";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function EmployerForm({user, onLogin}){
-    const[organization, setOrganization] = useState("");
-    const[phone_number, setPhoneNumber] = useState("");
-    const[image, setImage] = useState(null);
-    const[errors,setErrors] = useState("");
-    const[isLoading, setIsLoading] = useState(true)
-    const[users,setUsers] = useState([])
+function EmployerForm({ user, onLogin }) {
+  const [organization, setOrganization] = useState("");
+  const [phone_number, setPhoneNumber] = useState("");
+  const [image, setImage] = useState(null);
+  const [errors, setErrors] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
-    // useEffect(()=>{
-    //     fetch("http://127.0.0.1:3000/users")
-    //     .then(res => res.json())
-    //     .then(data => setUsers(data))
-    // }, [])
+  const navigate = useNavigate();
 
+  let localUser = JSON.parse(localStorage.getItem("user"));
+  
+  let user_id = localUser.id;
 
-    function handleSubmit(e){
-        e.preventDefault();
+  console.log(user_id)
+
+  function handleSubmit(e) {
+    e.preventDefault();
     const formData = new FormData();
-        // formData.append("user_id",users[0].id)
-        formData.append("organization", organization);
-        formData.append("phone_number", phone_number);
-        formData.append("image", image);
-    
+
+    formData.append("user_id", user_id);
+    formData.append("organization", organization);
+    formData.append("phone_number", phone_number);
+    formData.append("image", image);
 
     fetch("http://127.0.0.1:3000/employers", {
-        method: "POST",   
-        body: formData,
+      method: "POST",
+      body: formData,
+    }).then((r) => {
+      navigate("/payment_form");
+      setIsLoading(false);
+      if (r.ok) {
+        r.json().then((user) => onLogin(user));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
 
-      }).then((r) => {
-        setIsLoading(false);
-        if (r.ok) {
-          r.json().then((user) => onLogin(user));
-       
-        } else {
-          r.json().then((err) => setErrors(err.errors));
-        }
-      });
-    }
-
-      return(
-        <div className="form-container">
-        <div className="form-details">
+  return (
+    <div className="form-container">
+      <div className="form-details">
         <h1>JS</h1>
         <h2>Verify your identity</h2>
         <form className="identity-form" onSubmit={handleSubmit}>
-        <input
+          <input
             value={organization}
             onChange={(e) => setOrganization(e.target.value)}
             type="text"
@@ -64,23 +65,21 @@ function EmployerForm({user, onLogin}){
           />
           <label for="inputTag" className="label">
             Upload Image
-           <input
-            onChange={(e) => setImage(e.target.files[0])}
-            type="file"
-            // accept="application/pdf,application/vnd.ms-excel"
-            placeholder="🔓Upload ID image"
-            id="inputTag"
-            className="idmage"
-          />
+            <input
+              onChange={(e) => setImage(e.target.files[0])}
+              type="file"
+              // accept="application/pdf,application/vnd.ms-excel"
+              placeholder="🔓Upload ID image"
+              id="inputTag"
+              className="idmage"
+            />
           </label>
           <button type="submit" className="formButton">
             Submit
           </button>
-      </form>
-        </div>
-        </div>
-      )
-    }
-    export default EmployerForm;
-  
-
+        </form>
+      </div>
+    </div>
+  );
+}
+export default EmployerForm;
