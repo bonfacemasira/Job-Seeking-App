@@ -36,7 +36,7 @@ function RegisterForm({ onLogin }) {
         localStorage.setItem("user", JSON.stringify(r.data.user));
         localStorage.setItem("token", JSON.stringify(r.data.token));
         localStorage.setItem("authenticated", JSON.stringify(true));
-        if (r.data.role === "job_seeker") {
+        if (r.data.user.role === "job_seeker") {
           navigate("/job_seeker_profile");
         } else {
           navigate("/employer_profile");

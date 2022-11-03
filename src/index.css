@@ -110,3 +110,9 @@ label{
   text-align: left;
   margin-top: 1rem;
 }
+.idimage{
+  display: none;
+}
+.label{
+  cursor: pointer;
+}

@@ -18,6 +18,7 @@ function IdentityForm({ data }) {
   const [availability, setAvailability] = useState("");
   const [salary_expectation, setSalary] = useState("");
   const [isLoading, setIsLoading] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
@@ -38,17 +39,12 @@ function IdentityForm({ data }) {
     // post data to backend
     fetch("http://127.0.0.1:3000/job_seekers", {
       method: "POST",
-      // headers: {
-
-      //   "Content-Type": "multipart/form-data"
-      // },
       body: formData,
-      // body: JSON.stringify({ country, birthDate, passport, idImage,full_name, salary_expectation, cv, skills, availability, cerificate, experience, job_type }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => data(user));
-        navigate("/job_seeker_confirm");
+        navigate("/finalization");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -82,22 +78,26 @@ function IdentityForm({ data }) {
             id="birthDate"
             name="birthDate"
           />
+           <label for="inputTag" className="label">
           <input
             type="file"
             onChange={(e) => setPassport(e.target.files[0])}
             accept="application/pdf,application/vnd.ms-excel"
             placeholder="🔓Upload your passport image"
-            id="passport"
-            name="passport"
+            id="inputTag"
+            className="idmage"
           />
+          </label>
+          <label for="inputTag" className="label">
           <input
             onChange={(e) => setIdImage(e.target.files[0])}
             type="file"
             accept="application/pdf,application/vnd.ms-excel"
             placeholder="🔓Upload ID image"
-            id="idImage"
-            name="IdImage"
+            id="inputTag"
+            className="idmage"
           />
+          </label>
           <input
             value={job_type}
             onChange={(e) => setJob(e.target.value)}
@@ -139,22 +139,26 @@ function IdentityForm({ data }) {
             id="availability"
             name="availability"
           />
+           <label for="inputTag" className="label">
           <input
             onChange={(e) => setCv(e.target.files[0])}
             type="file"
             accept="application/pdf,application/vnd.ms-excel"
             placeholder="🔓Upload your CV"
-            id="passport"
-            name="passport"
+            id="inputTag"
+            className="idmage"
           />
+          </label>
+          <label for="inputTag" className="label">
           <input
             onChange={(e) => setCertificate(e.target.files[0])}
             type="file"
             accept="application/pdf,application/vnd.ms-excel"
             placeholder="🔓Upload your certificate"
-            id="passport"
-            name="passport"
+            id="inputTag"
+            className="idmage"
           />
+          </label>
 
           <button type="submit" className="formButton">
             {isLoading ? "loading..." : "Submit"}

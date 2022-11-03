@@ -51,7 +51,7 @@ function PaymentForm({ onLogin}) {
            clearInterval(interval)
          if(data[1].ResultCode === "0") {
            alert("payment was successful")
-           
+
          }
          else{
            alert(data[1].ResultDesc)

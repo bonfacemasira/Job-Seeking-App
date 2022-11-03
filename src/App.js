@@ -10,39 +10,24 @@ import IdentityForm from "./components/IdentityForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import { Navigate } from "react-router-dom";
 import AsideBar from "./components/asidebar/AsideBar";
-
 import Notifications from "./pages/Notifications";
-
 // import UploadJob from "./components/Employer/UploadJob";
-
 // import Job from "./components/jobs/job";
-
 import Finalization from "./components/Finalization";
-import Home from "./components/Home";
+// import Home from "./components/Home";
 import axios from "./api/Access";
-// import EditProfile from "./pages/EditProfile";
-
-
-import UploadJob from "./components/Employer/UploadJob";
-
-// import Job from "./components/jobs/job";
-
-// import UploadJob from "./components/Employer/UploadJob";
-
-import VerificationForm from "./components/VerificationForm";
 import PaymentForm from "./components/PaymentForm";
-
+import EmployerForm from "./components/EmployerForm";
+import Dashboard from "./pages/Dashboard";
+import Employers from "./pages/Employers";
+import JobSeekers from "./pages/JobSeekers";
+// import EditProfile from "./pages/EditProfile";
+// import UploadJob from "./components/Employer/UploadJob";
+// import Job from "./components/jobs/job";
 
 function App() {
   const [user, setUser] = useState(null);
   const [jobSeekerData, setJobSeekerData] = useState([]);
-
-
-  // to delete set user to admin
-
-  // useEffect(()=>{
-  //   setUser("employer")
-  // },[])
 
 
   useEffect(() => {
@@ -52,37 +37,6 @@ function App() {
     });
   }, []);
 
-  //navigate user
-  // function navigateUser() {
-  //   if (!user) {
-  //     return <Navigate replace to="/login" />;
-  //   } else if (user && user.role === "admin") {
-  //     return <Navigate replace to="/admin" />;
-  //   } else if (user && user.role === "employer") {
-  //     return <Navigate replace to="/employer" />;
-  //   } else if (user && user.role === "job_seeker") {
-  //     return <Navigate replace to="/job_seeker" />;
-  //   }
-  // }
-
-  // a trial to check if user exists
-  // i am using it to view the dashboard page
-
-  if (user === "admin")
-    return (
-      <ProSidebarProvider>
-        <AsideBar />
-      </ProSidebarProvider>
-    );
-
-
-  // useEffect(() => {
-  //   fetch("").then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => setUser(user));
-  //     }
-  //   });
-  // }, []);
   return (
     <div className="App">
       <NavBar user={user} setUser={setUser} />
@@ -90,34 +44,24 @@ function App() {
         <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
-        <Route path="/employer/job_upload" element={<UploadJob />} />
+        <Route exact path="/job_seeker_profile" element={<IdentityForm />} />
+        <Route exact path="/payment_form" element={<PaymentForm />} />
+        <Route exact path="/employer_profile" element={<EmployerForm />} />
+        <Route exact path="/finalization" element={<Finalization />} />
         <Route
           exact
-          path="/job_seeker_profile"
-          element={<IdentityForm data={setJobSeekerData} />}
-        />
-        <Route exact path="/final" element={<Finalization />} />
-        <Route
-          exact
-          path="/job_seeker_confirm"
+          path="/admin_dashboard"
           element={
-            jobSeekerData ? (
-              <VerificationForm
-                data={jobSeekerData}
-                setJobSeekerData={setJobSeekerData}
-              />
-            ) : null
+            <ProSidebarProvider>
+              <AsideBar />
+            </ProSidebarProvider>
           }
         />
-        <Route
-          exact
-          path="/login"
-          element={<LoginForm user={user} setUser={setUser} />}
-        />
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<LoginForm />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/employers" element={<Employers />} />
+        <Route path="/job_seekers" element={<JobSeekers />} />
       </Routes>
-      <PaymentForm/>
-      {/* <Notifications/> */}
     </div>
   );
 }
