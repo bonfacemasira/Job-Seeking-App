@@ -216,3 +216,25 @@ nav {
   border: 2px solid red;
   object-fit: cover;
 }
+
+/* card */
+.container{
+ 
+  margin-left: 100px;
+  padding-left: 190px;
+  display: flex; 
+  flex-wrap: wrap;
+  align-items: center;
+ }
+
+.card
+{
+border: 1px solid black;
+height: 300px;
+margin-top: 180px;
+width: 180px;
+float: left;
+background-color: white;
+margin-left: 32px;
+border-radius: 10px; 
+}

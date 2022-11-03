@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import Swal from "sweetalert2";
 
 function PaymentForm({ onLogin }) {
@@ -7,6 +8,8 @@ function PaymentForm({ onLogin }) {
 
   const [errors, setErrors] = useState("");
   const [isLoading, setIsLoading] = useState("");
+
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -46,6 +49,7 @@ function PaymentForm({ onLogin }) {
               if (data[0] === "success") {
                 clearInterval(interval);
                 if (data[1].ResultCode === "0") {
+                  navigate("/card");
                   alert("payment was successful");
                 } else {
                   alert(data[1].ResultDesc);

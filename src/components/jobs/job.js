@@ -18,7 +18,7 @@ function Job() {
                 </div>
              <div className="left"> 
              <div className="information">
-             <h1 className="header">   peronal assistant </h1>
+             <h1 className="header">Personal assistant </h1>
              <span>
              <i class="cis-lock-locked"></i>
              </span>
@@ -64,7 +64,7 @@ function Job() {
             </div>
             <div className="span">
                 <span className="accept"> Accept </span>
-                <span className="decline"> Decline </span>
+                <span className="cancel"> Cannel </span>
             </div>
 
         </section>
