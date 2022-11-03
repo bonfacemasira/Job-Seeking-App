@@ -145,11 +145,12 @@ img{
   display: inline;
   border: 1px solid #b8bcc4;
   width: 300px;
-  height: 250px;
+  height: 300px;
   margin-right: auto;
   margin-left: auto;
 justify-content: center;
 align-items: center;
+margin-top: 50px;
   
 
   
@@ -205,4 +206,25 @@ bottom: auto;
           height: '3px';
 }
   
+/* ft-joboffers */
+.wrapper1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
 
+}
+.search-icon {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 14px;
+}
+
+.avail{
+  color: black;
+}
+.togcontainer{
+
+}

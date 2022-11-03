@@ -81,6 +81,7 @@ function IdentityForm({ data }) {
            <label for="inputTag" className="label">
              Upload your passport
           <input
+        
             type="file"
             onChange={(e) => setPassport(e.target.files[0])}
             // accept="application/pdf,application/vnd.ms-excel"
@@ -94,7 +95,7 @@ function IdentityForm({ data }) {
           <input
             onChange={(e) => setIdImage(e.target.files[0])}
             type="file"
-            accept="application/pdf,application/vnd.ms-excel"
+            // accept="application/pdf,application/vnd.ms-excel"
             placeholder="🔓Upload ID image"
             id="inputTag"
             className="idmage"

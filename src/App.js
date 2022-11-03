@@ -27,6 +27,8 @@ import Dashboard from "./pages/Dashboard";
 import Employers from "./pages/Employers";
 import JobSeekers from "./pages/JobSeekers";
 import Card from "./components/Card";
+import Jobseekers from "./components/jobseekers";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -66,6 +68,7 @@ function App() {
         <Route path="/job_seekers" element={<JobSeekers />} />
         <Route path="/card" element={<Card />} />
       </Routes>
+      <Jobseekers />
     </div>
   );
 }
