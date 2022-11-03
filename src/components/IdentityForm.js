@@ -94,7 +94,7 @@ function IdentityForm({ data }) {
           <input
             onChange={(e) => setIdImage(e.target.files[0])}
             type="file"
-            accept="application/pdf,application/vnd.ms-excel"
+            // accept="application/pdf,application/vnd.ms-excel"
             placeholder="🔓Upload ID image"
             id="inputTag"
             className="idmage"

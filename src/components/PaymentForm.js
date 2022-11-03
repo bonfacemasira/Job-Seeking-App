@@ -14,7 +14,7 @@ function PaymentForm({ onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("https://da58-41-212-84-46.eu.ngrok.io/stkpush", {
+    fetch("https://4595-41-212-84-46.eu.ngrok.io/stkpush", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ function PaymentForm({ onLogin }) {
   useEffect(() => {
     const interval = setInterval(() => {
       if (checkoutRequestID.length > 0) {
-        fetch("https://da58-41-212-84-46.eu.ngrok.io/polling_payment", {
+        fetch("https://4595-41-212-84-46.eu.ngrok.io/polling_payment", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

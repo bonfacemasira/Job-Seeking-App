@@ -149,42 +149,46 @@ img{
   margin-right: auto;
   margin-left: auto;
 justify-content: center;
-align-items: center;
-  
-
-  
-  
+align-items: center;  
 }
+
 .image {
-  position: absolute;
-  width: 5em;
-   height: 5em; 
+  /* position: absolute; */
+  width: 6em;
+   height: 6em;
    -ms-transform: translateY(-300%);
   transform: translateY(-10%);
   
 }
+
+
 .image img{
   width: 100%;
   height: 100%;
   object-fit: cover;
 
 }
+
+
 .card-information{
   margin-top: 50px;
 }
+
+
 .card-style{
 display: flex;
 justify-content: center;
 align-items: center;
 }
+
 .info{
   color: black;
   font-weight: bolder;
   text-align: center;
   margin-bottom: 20px;
-
 }
-.card-button{
+
+.card-button {
 color: white;
 text-transform: uppercase;
 font-weight: bolder;
@@ -192,7 +196,8 @@ text-decoration: none;
 background: #020566;
 border-radius: 8px;
 padding: 16px 8px;
-width: 50%;
+/* width: 50%; */
+margin: 0 auto;
 margin-top: 1rem;
 margin-bottom: 2rem;
 bottom: auto;

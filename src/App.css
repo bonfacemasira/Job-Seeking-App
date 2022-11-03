@@ -45,6 +45,10 @@ a {
   text-decoration: none;
 }
 
+label{
+  color: white;
+}
+
 .login-form,
 .register-form,
 .payment-form,

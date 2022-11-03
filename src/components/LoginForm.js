@@ -21,7 +21,7 @@ function LoginForm({ setUser, user }) {
         localStorage.setItem("token", JSON.stringify(r.data.token));
         localStorage.setItem("authenticated", JSON.stringify(true));
         if (r.data.user.role === "job_seeker") {
-          navigate("/job_seeker_profile");
+          navigate("/my_offers");
         } else if (r.data.user.role === "employer") {
           navigate("/employer_profile");
         } else {
