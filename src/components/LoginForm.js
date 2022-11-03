@@ -23,7 +23,7 @@ function LoginForm({ setUser, user }) {
         if (r.data.user.role === "job_seeker") {
           navigate("/job_seeker_profile");
         } else if (r.data.user.role === "employer") {
-          navigate("/payment_form");
+          navigate("/employer_profile");
         } else {
           navigate('/admin_dashboard')
         }

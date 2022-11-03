@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import RegisterForm from "./components/RegisterForm";
 // import Login from "./pages/Login";
 import LoginForm from "./components/LoginForm";
+import EmployerForm from "./components/EmployerForm";
 import IdentityForm from "./components/IdentityForm";
 // import VerificationForm from "./components/VerificationForm";
 import { ProSidebarProvider } from "react-pro-sidebar";
@@ -16,14 +17,16 @@ import Notifications from "./pages/Notifications";
 import Finalization from "./components/Finalization";
 // import Home from "./components/Home";
 import axios from "./api/Access";
+// import EditProfile from "./pages/EditProfile";
+import UploadJob from "./components/Employer/UploadJob";
+// import Job from "./components/jobs/job";
+// import UploadJob from "./components/Employer/UploadJob";
+import VerificationForm from "./components/VerificationForm";
 import PaymentForm from "./components/PaymentForm";
-import EmployerForm from "./components/EmployerForm";
 import Dashboard from "./pages/Dashboard";
 import Employers from "./pages/Employers";
 import JobSeekers from "./pages/JobSeekers";
-// import EditProfile from "./pages/EditProfile";
-// import UploadJob from "./components/Employer/UploadJob";
-// import Job from "./components/jobs/job";
+
 
 function App() {
   const [user, setUser] = useState(null);
