@@ -14,9 +14,13 @@ function Offers() {
   return (
     <div className="container">
       {offers?.map((offer) => (
-        <div className="card-container" key={offer.id} style={{display:"flex", flexDirection:"column"}}>
+        <div
+          className="card-container"
+          key={offer.id}
+          style={{ display: "flex", flexDirection: "column" }}
+        >
           <div className="image">
-          <img src="https://logodix.com/logo/1433.png" alt="logo" />
+            <img src="https://logodix.com/logo/1433.png" alt="logo" />
           </div>
           <div className="card-information">
             <h2 className="info">{offer.employer.organization}</h2>
