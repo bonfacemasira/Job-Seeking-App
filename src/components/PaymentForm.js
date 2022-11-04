@@ -14,7 +14,7 @@ function PaymentForm({ onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("https://4595-41-212-84-46.eu.ngrok.io/stkpush", {
+    fetch("https://b7bd-41-212-84-46.eu.ngrok.io/stkpush", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ function PaymentForm({ onLogin }) {
   useEffect(() => {
     const interval = setInterval(() => {
       if (checkoutRequestID.length > 0) {
-        fetch("https://4595-41-212-84-46.eu.ngrok.io/polling_payment", {
+        fetch("https://b7bd-41-212-84-46.eu.ngrok.io/polling_payment", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -49,7 +49,7 @@ function PaymentForm({ onLogin }) {
               if (data[0] === "success") {
                 clearInterval(interval);
                 if (data[1].ResultCode === "0") {
-                  navigate("/card");
+                  navigate("/available_job_seekers");
                   alert("payment was successful");
                 } else {
                   alert(data[1].ResultDesc);
